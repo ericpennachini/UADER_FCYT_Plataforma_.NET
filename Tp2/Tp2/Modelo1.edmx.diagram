@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="47ca899d1aa640edb7d6bda16e0c5392" Name="Diagram1" >
+        <EntityTypeShape EntityType="Modelo1.Factor" Width="1.5" PointX="5.875" PointY="1.125" />
+        <EntityTypeShape EntityType="Modelo1.Caracteristica" Width="1.5" PointX="2.875" PointY="1.125" />
+        <AssociationConnector Association="Modelo1.CaracteristicaFactor" />
+        <EntityTypeShape EntityType="Modelo1.Proyecto" Width="1.5" PointX="9" PointY="1.125" />
+        <AssociationConnector Association="Modelo1.FactorProyecto" />
+        <EntityTypeShape EntityType="Modelo1.Gerente" Width="1.5" PointX="8.875" PointY="4.125" />
+        <AssociationConnector Association="Modelo1.GerenteProyecto" />
+        <EntityTypeShape EntityType="Modelo1.Ponderacion" Width="1.5" PointX="5.875" PointY="3.875" />
+        <AssociationConnector Association="Modelo1.PonderacionFactor" />
+        <AssociationConnector Association="Modelo1.PonderacionProyecto" ManuallyRouted="true" >
+          <ConnectorPoint PointX="7.375" PointY="3.96875" />
+          <ConnectorPoint PointX="9.746019465465837" PointY="3.9687499999999996" />
+          <ConnectorPoint PointX="9.9126861321325048" PointY="3.96875" />
+          <ConnectorPoint PointX="10.46875" PointY="3.96875" />
+          <ConnectorPoint PointX="10.46875" PointY="3.489889322916667" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
