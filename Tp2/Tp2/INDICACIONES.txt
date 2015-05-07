@@ -1,0 +1,14 @@
+﻿IMPORTANTE!!
+
+Archivo 'App.config': En el tag <connectionStrings> y <add ... /> se encuentra el string que se usa para la conexión con la BD.  
+
+Cada uno, cuando va a ejecutar esta aplicación, previamente tiene que tener creada una BD en su servidor local. 
+Luego, hay que modificar esta entrada para que tome la BD local de cada uno (servidor y nombre de la BD).
+
+Modificar:
+	'data source= [SERVIDOR]'
+	'initial catalog= [NOMBRE DE LA BASE DE DATOS]'
+
+{Para hacerlo más rápido, CTRL+F y buscar 'data source' e 'initial catalog'}
+
+El resto no se tendria que tocar, salvo que usen un servidor remoto con usuario y contraseña, que no sería el caso porque estamos usando el servidor local de la máquina.

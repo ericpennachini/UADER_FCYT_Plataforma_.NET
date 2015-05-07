@@ -2,13 +2,16 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/06/2015 19:32:17
--- Generated from EDMX file: D:\Documents\Visual Studio 2013\Projects\Tp2\Tp2\Modelo1.edmx
+-- Date Created: 05/06/2015 23:53:49
+-- Generated from EDMX file: C:\Users\EricDaniel\Documents\GitHub\UADER_FCYT_Plataforma_.NET\Tp2\Tp2\Modelo1.edmx
+-- --------------------------------------------------
+-- COMENTAR Y DESCOMENTAR LA SENTENCIA 'USE' SEGÚN CORRESPONDA!!!!!!!!!!
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [D:\DOCUMENTS\MIBASEPRUEBA.MDF];
+/*USE [D:\DOCUMENTS\MIBASEPRUEBA.MDF];*/
+USE [miBasePrueba];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
