@@ -12,10 +12,10 @@ namespace Tp2
     using System;
     using System.Collections.Generic;
     
-    public partial class Ponderacion
+    public partial class Caracterizacion
     {
-        public int idPonderacion { get; set; }
-        public Nullable<int> valor { get; set; }
+        public short Valor { get; set; }
+        public short Ponderacion { get; set; }
     
         public virtual Factor Factor { get; set; }
         public virtual Proyecto Proyecto { get; set; }

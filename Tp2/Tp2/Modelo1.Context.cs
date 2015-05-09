@@ -29,6 +29,6 @@ namespace Tp2
         public virtual DbSet<Caracteristica> CaracteristicaSet { get; set; }
         public virtual DbSet<Proyecto> ProyectoSet { get; set; }
         public virtual DbSet<Gerente> GerenteSet { get; set; }
-        public virtual DbSet<Ponderacion> PonderacionSet { get; set; }
+        public virtual DbSet<Caracterizacion> CaracterizacionSet { get; set; }
     }
 }

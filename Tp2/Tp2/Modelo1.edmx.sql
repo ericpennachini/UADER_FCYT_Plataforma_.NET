@@ -2,15 +2,12 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/06/2015 23:53:49
+-- Date Created: 05/09/2015 10:10:04
 -- Generated from EDMX file: C:\Users\EricDaniel\Documents\GitHub\UADER_FCYT_Plataforma_.NET\Tp2\Tp2\Modelo1.edmx
--- --------------------------------------------------
--- COMENTAR Y DESCOMENTAR LA SENTENCIA 'USE' SEGÚN CORRESPONDA!!!!!!!!!!
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-/*USE [D:\DOCUMENTS\MIBASEPRUEBA.MDF];*/
 USE [miBasePrueba];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
@@ -23,20 +20,8 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_CaracteristicaFactor]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[CaracteristicaSet] DROP CONSTRAINT [FK_CaracteristicaFactor];
 GO
-IF OBJECT_ID(N'[dbo].[FK_FactorProyecto_Factor]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[FactorProyecto] DROP CONSTRAINT [FK_FactorProyecto_Factor];
-GO
-IF OBJECT_ID(N'[dbo].[FK_FactorProyecto_Proyecto]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[FactorProyecto] DROP CONSTRAINT [FK_FactorProyecto_Proyecto];
-GO
 IF OBJECT_ID(N'[dbo].[FK_GerenteProyecto]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ProyectoSet] DROP CONSTRAINT [FK_GerenteProyecto];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PonderacionFactor]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PonderacionSet] DROP CONSTRAINT [FK_PonderacionFactor];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PonderacionProyecto]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PonderacionSet] DROP CONSTRAINT [FK_PonderacionProyecto];
 GO
 
 -- --------------------------------------------------
@@ -54,12 +39,6 @@ IF OBJECT_ID(N'[dbo].[ProyectoSet]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[GerenteSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[GerenteSet];
-GO
-IF OBJECT_ID(N'[dbo].[PonderacionSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PonderacionSet];
-GO
-IF OBJECT_ID(N'[dbo].[FactorProyecto]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[FactorProyecto];
 GO
 
 -- --------------------------------------------------
@@ -100,17 +79,10 @@ CREATE TABLE [dbo].[GerenteSet] (
 );
 GO
 
--- Creating table 'PonderacionSet'
-CREATE TABLE [dbo].[PonderacionSet] (
-    [idPonderacion] int IDENTITY(1,1) NOT NULL,
-    [valor] int  NULL,
-    [Factor_idFactor] int  NOT NULL,
-    [Proyecto_idProyecto] int  NOT NULL
-);
-GO
-
--- Creating table 'FactorProyecto'
-CREATE TABLE [dbo].[FactorProyecto] (
+-- Creating table 'CaracterizacionSet'
+CREATE TABLE [dbo].[CaracterizacionSet] (
+    [Valor] smallint IDENTITY(1,1) NOT NULL,
+    [Ponderacion] smallint  NOT NULL,
     [Factor_idFactor] int  NOT NULL,
     [Proyecto_idProyecto] int  NOT NULL
 );
@@ -144,16 +116,10 @@ ADD CONSTRAINT [PK_GerenteSet]
     PRIMARY KEY CLUSTERED ([idGerente] ASC);
 GO
 
--- Creating primary key on [idPonderacion] in table 'PonderacionSet'
-ALTER TABLE [dbo].[PonderacionSet]
-ADD CONSTRAINT [PK_PonderacionSet]
-    PRIMARY KEY CLUSTERED ([idPonderacion] ASC);
-GO
-
--- Creating primary key on [Factor_idFactor], [Proyecto_idProyecto] in table 'FactorProyecto'
-ALTER TABLE [dbo].[FactorProyecto]
-ADD CONSTRAINT [PK_FactorProyecto]
-    PRIMARY KEY CLUSTERED ([Factor_idFactor], [Proyecto_idProyecto] ASC);
+-- Creating primary key on [Valor] in table 'CaracterizacionSet'
+ALTER TABLE [dbo].[CaracterizacionSet]
+ADD CONSTRAINT [PK_CaracterizacionSet]
+    PRIMARY KEY CLUSTERED ([Valor] ASC);
 GO
 
 -- --------------------------------------------------
@@ -175,30 +141,6 @@ ON [dbo].[CaracteristicaSet]
     ([Factor_idFactor]);
 GO
 
--- Creating foreign key on [Factor_idFactor] in table 'FactorProyecto'
-ALTER TABLE [dbo].[FactorProyecto]
-ADD CONSTRAINT [FK_FactorProyecto_Factor]
-    FOREIGN KEY ([Factor_idFactor])
-    REFERENCES [dbo].[FactorSet]
-        ([idFactor])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating foreign key on [Proyecto_idProyecto] in table 'FactorProyecto'
-ALTER TABLE [dbo].[FactorProyecto]
-ADD CONSTRAINT [FK_FactorProyecto_Proyecto]
-    FOREIGN KEY ([Proyecto_idProyecto])
-    REFERENCES [dbo].[ProyectoSet]
-        ([idProyecto])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_FactorProyecto_Proyecto'
-CREATE INDEX [IX_FK_FactorProyecto_Proyecto]
-ON [dbo].[FactorProyecto]
-    ([Proyecto_idProyecto]);
-GO
-
 -- Creating foreign key on [Gerente_idGerente] in table 'ProyectoSet'
 ALTER TABLE [dbo].[ProyectoSet]
 ADD CONSTRAINT [FK_GerenteProyecto]
@@ -214,33 +156,33 @@ ON [dbo].[ProyectoSet]
     ([Gerente_idGerente]);
 GO
 
--- Creating foreign key on [Factor_idFactor] in table 'PonderacionSet'
-ALTER TABLE [dbo].[PonderacionSet]
-ADD CONSTRAINT [FK_PonderacionFactor]
+-- Creating foreign key on [Factor_idFactor] in table 'CaracterizacionSet'
+ALTER TABLE [dbo].[CaracterizacionSet]
+ADD CONSTRAINT [FK_FactorCaracterizacion]
     FOREIGN KEY ([Factor_idFactor])
     REFERENCES [dbo].[FactorSet]
         ([idFactor])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_PonderacionFactor'
-CREATE INDEX [IX_FK_PonderacionFactor]
-ON [dbo].[PonderacionSet]
+-- Creating non-clustered index for FOREIGN KEY 'FK_FactorCaracterizacion'
+CREATE INDEX [IX_FK_FactorCaracterizacion]
+ON [dbo].[CaracterizacionSet]
     ([Factor_idFactor]);
 GO
 
--- Creating foreign key on [Proyecto_idProyecto] in table 'PonderacionSet'
-ALTER TABLE [dbo].[PonderacionSet]
-ADD CONSTRAINT [FK_PonderacionProyecto]
+-- Creating foreign key on [Proyecto_idProyecto] in table 'CaracterizacionSet'
+ALTER TABLE [dbo].[CaracterizacionSet]
+ADD CONSTRAINT [FK_ProyectoCaracterizacion]
     FOREIGN KEY ([Proyecto_idProyecto])
     REFERENCES [dbo].[ProyectoSet]
         ([idProyecto])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_PonderacionProyecto'
-CREATE INDEX [IX_FK_PonderacionProyecto]
-ON [dbo].[PonderacionSet]
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProyectoCaracterizacion'
+CREATE INDEX [IX_FK_ProyectoCaracterizacion]
+ON [dbo].[CaracterizacionSet]
     ([Proyecto_idProyecto]);
 GO
 

@@ -17,15 +17,13 @@ namespace Tp2
         public Factor()
         {
             this.Caracteristica = new HashSet<Caracteristica>();
-            this.Proyecto = new HashSet<Proyecto>();
-            this.Ponderacion = new HashSet<Ponderacion>();
+            this.Caracterizacion = new HashSet<Caracterizacion>();
         }
     
         public int idFactor { get; set; }
         public string nombreFactor { get; set; }
     
         public virtual ICollection<Caracteristica> Caracteristica { get; set; }
-        public virtual ICollection<Proyecto> Proyecto { get; set; }
-        public virtual ICollection<Ponderacion> Ponderacion { get; set; }
+        public virtual ICollection<Caracterizacion> Caracterizacion { get; set; }
     }
 }

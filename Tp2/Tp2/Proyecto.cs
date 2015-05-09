@@ -16,8 +16,7 @@ namespace Tp2
     {
         public Proyecto()
         {
-            this.Factor = new HashSet<Factor>();
-            this.Ponderacion = new HashSet<Ponderacion>();
+            this.Caracterizacion = new HashSet<Caracterizacion>();
         }
     
         public int idProyecto { get; set; }
@@ -25,8 +24,7 @@ namespace Tp2
         public string descripcion { get; set; }
         public Nullable<System.DateTime> fecha { get; set; }
     
-        public virtual ICollection<Factor> Factor { get; set; }
         public virtual Gerente Gerente { get; set; }
-        public virtual ICollection<Ponderacion> Ponderacion { get; set; }
+        public virtual ICollection<Caracterizacion> Caracterizacion { get; set; }
     }
 }

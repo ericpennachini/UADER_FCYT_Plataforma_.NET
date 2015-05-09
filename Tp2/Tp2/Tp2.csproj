@@ -53,6 +53,9 @@
     <Compile Include="Caracteristica.cs">
       <DependentUpon>Modelo1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Caracterizacion.cs">
+      <DependentUpon>Modelo1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Factor.cs">
       <DependentUpon>Modelo1.tt</DependentUpon>
     </Compile>
@@ -74,9 +77,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Modelo1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Ponderacion.cs">
-      <DependentUpon>Modelo1.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

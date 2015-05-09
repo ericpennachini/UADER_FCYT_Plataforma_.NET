@@ -10,31 +10,22 @@
     <EntitySet Name="CaracteristicaSet" EntityType="Modelo1.Store.CaracteristicaSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ProyectoSet" EntityType="Modelo1.Store.ProyectoSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="GerenteSet" EntityType="Modelo1.Store.GerenteSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PonderacionSet" EntityType="Modelo1.Store.PonderacionSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="FactorProyecto" EntityType="Modelo1.Store.FactorProyecto" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CaracterizacionSet" EntityType="Modelo1.Store.CaracterizacionSet" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="CaracteristicaFactor" Association="Modelo1.Store.CaracteristicaFactor">
       <End Role="Caracteristica" EntitySet="CaracteristicaSet" />
       <End Role="Factor" EntitySet="FactorSet" />
-    </AssociationSet>
-    <AssociationSet Name="FK_FactorProyecto_Factor" Association="Modelo1.Store.FK_FactorProyecto_Factor">
-      <End Role="Factor" EntitySet="FactorSet" />
-      <End Role="FactorProyecto" EntitySet="FactorProyecto" />
-    </AssociationSet>
-    <AssociationSet Name="FK_FactorProyecto_Proyecto" Association="Modelo1.Store.FK_FactorProyecto_Proyecto">
-      <End Role="Proyecto" EntitySet="ProyectoSet" />
-      <End Role="FactorProyecto" EntitySet="FactorProyecto" />
     </AssociationSet>
     <AssociationSet Name="GerenteProyecto" Association="Modelo1.Store.GerenteProyecto">
       <End Role="Gerente" EntitySet="GerenteSet" />
       <End Role="Proyecto" EntitySet="ProyectoSet" />
     </AssociationSet>
-    <AssociationSet Name="PonderacionFactor" Association="Modelo1.Store.PonderacionFactor">
-      <End Role="Ponderacion" EntitySet="PonderacionSet" />
+    <AssociationSet Name="FactorCaracterizacion" Association="Modelo1.Store.FactorCaracterizacion">
       <End Role="Factor" EntitySet="FactorSet" />
+      <End Role="Caracterizacion" EntitySet="CaracterizacionSet" />
     </AssociationSet>
-    <AssociationSet Name="PonderacionProyecto" Association="Modelo1.Store.PonderacionProyecto">
-      <End Role="Ponderacion" EntitySet="PonderacionSet" />
+    <AssociationSet Name="ProyectoCaracterizacion" Association="Modelo1.Store.ProyectoCaracterizacion">
       <End Role="Proyecto" EntitySet="ProyectoSet" />
+      <End Role="Caracterizacion" EntitySet="CaracterizacionSet" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="FactorSet">
@@ -71,20 +62,12 @@
     <Property Name="nombre" Type="nvarchar(max)" Nullable="true" />
     <Property Name="apellido" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
-  <EntityType Name="PonderacionSet">
+  <EntityType Name="CaracterizacionSet">
     <Key>
-      <PropertyRef Name="idPonderacion" />
+      <PropertyRef Name="Valor" />
     </Key>
-    <Property Name="idPonderacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="valor" Type="int" Nullable="true" />
-    <Property Name="Factor_idFactor" Type="int" Nullable="false" />
-    <Property Name="Proyecto_idProyecto" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="FactorProyecto">
-    <Key>
-      <PropertyRef Name="Factor_idFactor" />
-      <PropertyRef Name="Proyecto_idProyecto" />
-    </Key>
+    <Property Name="Valor" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ponderacion" Type="smallint" Nullable="false" />
     <Property Name="Factor_idFactor" Type="int" Nullable="false" />
     <Property Name="Proyecto_idProyecto" Type="int" Nullable="false" />
   </EntityType>
@@ -112,50 +95,26 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="PonderacionFactor">
-    <End Role="Ponderacion" Type="Modelo1.Store.PonderacionSet" Multiplicity="*" />
+  <Association Name="FactorCaracterizacion">
     <End Role="Factor" Type="Modelo1.Store.FactorSet" Multiplicity="1" />
+    <End Role="Caracterizacion" Type="Modelo1.Store.CaracterizacionSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Factor">
         <PropertyRef Name="idFactor" />
       </Principal>
-      <Dependent Role="Ponderacion">
+      <Dependent Role="Caracterizacion">
         <PropertyRef Name="Factor_idFactor" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="PonderacionProyecto">
-    <End Role="Ponderacion" Type="Modelo1.Store.PonderacionSet" Multiplicity="*" />
+  <Association Name="ProyectoCaracterizacion">
     <End Role="Proyecto" Type="Modelo1.Store.ProyectoSet" Multiplicity="1" />
+    <End Role="Caracterizacion" Type="Modelo1.Store.CaracterizacionSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Proyecto">
         <PropertyRef Name="idProyecto" />
       </Principal>
-      <Dependent Role="Ponderacion">
-        <PropertyRef Name="Proyecto_idProyecto" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_FactorProyecto_Factor">
-    <End Role="Factor" Type="Modelo1.Store.FactorSet" Multiplicity="1" />
-    <End Role="FactorProyecto" Type="Modelo1.Store.FactorProyecto" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Factor">
-        <PropertyRef Name="idFactor" />
-      </Principal>
-      <Dependent Role="FactorProyecto">
-        <PropertyRef Name="Factor_idFactor" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_FactorProyecto_Proyecto">
-    <End Role="FactorProyecto" Type="Modelo1.Store.FactorProyecto" Multiplicity="*" />
-    <End Role="Proyecto" Type="Modelo1.Store.ProyectoSet" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Proyecto">
-        <PropertyRef Name="idProyecto" />
-      </Principal>
-      <Dependent Role="FactorProyecto">
+      <Dependent Role="Caracterizacion">
         <PropertyRef Name="Proyecto_idProyecto" />
       </Dependent>
     </ReferentialConstraint>
@@ -172,23 +131,19 @@
             <End Role="Factor" EntitySet="FactorSet" />
           </AssociationSet>
           <EntitySet Name="ProyectoSet" EntityType="Modelo1.Proyecto" />
-          <AssociationSet Name="FactorProyecto" Association="Modelo1.FactorProyecto">
-            <End Role="Factor" EntitySet="FactorSet" />
-            <End Role="Proyecto" EntitySet="ProyectoSet" />
-          </AssociationSet>
           <EntitySet Name="GerenteSet" EntityType="Modelo1.Gerente" />
           <AssociationSet Name="GerenteProyecto" Association="Modelo1.GerenteProyecto">
             <End Role="Gerente" EntitySet="GerenteSet" />
             <End Role="Proyecto" EntitySet="ProyectoSet" />
           </AssociationSet>
-          <EntitySet Name="PonderacionSet" EntityType="Modelo1.Ponderacion" />
-          <AssociationSet Name="PonderacionFactor" Association="Modelo1.PonderacionFactor">
-            <End Role="Ponderacion" EntitySet="PonderacionSet" />
+          <EntitySet Name="CaracterizacionSet" EntityType="Modelo1.Caracterizacion" />
+          <AssociationSet Name="FactorCaracterizacion" Association="Modelo1.FactorCaracterizacion">
             <End Role="Factor" EntitySet="FactorSet" />
+            <End Role="Caracterizacion" EntitySet="CaracterizacionSet" />
           </AssociationSet>
-          <AssociationSet Name="PonderacionProyecto" Association="Modelo1.PonderacionProyecto">
-            <End Role="Ponderacion" EntitySet="PonderacionSet" />
+          <AssociationSet Name="ProyectoCaracterizacion" Association="Modelo1.ProyectoCaracterizacion">
             <End Role="Proyecto" EntitySet="ProyectoSet" />
+            <End Role="Caracterizacion" EntitySet="CaracterizacionSet" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Factor">
@@ -198,8 +153,7 @@
           <Property Name="idFactor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombreFactor" Type="String" Nullable="true" />
           <NavigationProperty Name="Caracteristica" Relationship="Modelo1.CaracteristicaFactor" FromRole="Factor" ToRole="Caracteristica" />
-          <NavigationProperty Name="Proyecto" Relationship="Modelo1.FactorProyecto" FromRole="Factor" ToRole="Proyecto" />
-          <NavigationProperty Name="Ponderacion" Relationship="Modelo1.PonderacionFactor" FromRole="Factor" ToRole="Ponderacion" />
+          <NavigationProperty Name="Caracterizacion" Relationship="Modelo1.FactorCaracterizacion" FromRole="Factor" ToRole="Caracterizacion" />
         </EntityType>
         <EntityType Name="Caracteristica">
           <Key>
@@ -222,14 +176,9 @@
           <Property Name="nombre" Type="String" Nullable="true" />
           <Property Name="descripcion" Type="String" Nullable="true" />
           <Property Name="fecha" Type="DateTime" Nullable="true" />
-          <NavigationProperty Name="Factor" Relationship="Modelo1.FactorProyecto" FromRole="Proyecto" ToRole="Factor" />
           <NavigationProperty Name="Gerente" Relationship="Modelo1.GerenteProyecto" FromRole="Proyecto" ToRole="Gerente" />
-          <NavigationProperty Name="Ponderacion" Relationship="Modelo1.PonderacionProyecto" FromRole="Proyecto" ToRole="Ponderacion" />
+          <NavigationProperty Name="Caracterizacion" Relationship="Modelo1.ProyectoCaracterizacion" FromRole="Proyecto" ToRole="Caracterizacion" />
         </EntityType>
-        <Association Name="FactorProyecto">
-          <End Type="Modelo1.Factor" Role="Factor" Multiplicity="*" />
-          <End Type="Modelo1.Proyecto" Role="Proyecto" Multiplicity="*" />
-        </Association>
         <EntityType Name="Gerente">
           <Key>
             <PropertyRef Name="idGerente" />
@@ -243,22 +192,22 @@
           <End Type="Modelo1.Gerente" Role="Gerente" Multiplicity="1" />
           <End Type="Modelo1.Proyecto" Role="Proyecto" Multiplicity="*" />
         </Association>
-        <EntityType Name="Ponderacion">
+        <EntityType Name="Caracterizacion">
           <Key>
-            <PropertyRef Name="idPonderacion" />
+            <PropertyRef Name="Valor" />
           </Key>
-          <Property Name="idPonderacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="valor" Type="Int32" Nullable="true" />
-          <NavigationProperty Name="Factor" Relationship="Modelo1.PonderacionFactor" FromRole="Ponderacion" ToRole="Factor" />
-          <NavigationProperty Name="Proyecto" Relationship="Modelo1.PonderacionProyecto" FromRole="Ponderacion" ToRole="Proyecto" />
+          <Property Name="Valor" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ponderacion" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Factor" Relationship="Modelo1.FactorCaracterizacion" FromRole="Caracterizacion" ToRole="Factor" />
+          <NavigationProperty Name="Proyecto" Relationship="Modelo1.ProyectoCaracterizacion" FromRole="Caracterizacion" ToRole="Proyecto" />
         </EntityType>
-        <Association Name="PonderacionFactor">
-          <End Type="Modelo1.Ponderacion" Role="Ponderacion" Multiplicity="*" />
+        <Association Name="FactorCaracterizacion">
           <End Type="Modelo1.Factor" Role="Factor" Multiplicity="1" />
+          <End Type="Modelo1.Caracterizacion" Role="Caracterizacion" Multiplicity="*" />
         </Association>
-        <Association Name="PonderacionProyecto">
-          <End Type="Modelo1.Ponderacion" Role="Ponderacion" Multiplicity="*" />
+        <Association Name="ProyectoCaracterizacion">
           <End Type="Modelo1.Proyecto" Role="Proyecto" Multiplicity="1" />
+          <End Type="Modelo1.Caracterizacion" Role="Caracterizacion" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -302,11 +251,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PonderacionSet">
-      <EntityTypeMapping TypeName="IsTypeOf(Modelo1.Ponderacion)">
-        <MappingFragment StoreEntitySet="PonderacionSet">
-          <ScalarProperty Name="idPonderacion" ColumnName="idPonderacion" />
-          <ScalarProperty Name="valor" ColumnName="valor" />
+    <EntitySetMapping Name="CaracterizacionSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Modelo1.Caracterizacion)">
+        <MappingFragment StoreEntitySet="CaracterizacionSet">
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Ponderacion" ColumnName="Ponderacion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -318,14 +267,6 @@
         <ScalarProperty Name="idCaracteristica" ColumnName="idCaracteristica" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="FactorProyecto" TypeName="Modelo1.FactorProyecto" StoreEntitySet="FactorProyecto">
-      <EndProperty Name="Factor">
-        <ScalarProperty Name="idFactor" ColumnName="Factor_idFactor" />
-      </EndProperty>
-      <EndProperty Name="Proyecto">
-        <ScalarProperty Name="idProyecto" ColumnName="Proyecto_idProyecto" />
-      </EndProperty>
-    </AssociationSetMapping>
     <AssociationSetMapping Name="GerenteProyecto" TypeName="Modelo1.GerenteProyecto" StoreEntitySet="ProyectoSet">
       <EndProperty Name="Gerente">
         <ScalarProperty Name="idGerente" ColumnName="Gerente_idGerente" />
@@ -334,20 +275,20 @@
         <ScalarProperty Name="idProyecto" ColumnName="idProyecto" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="PonderacionFactor" TypeName="Modelo1.PonderacionFactor" StoreEntitySet="PonderacionSet">
+    <AssociationSetMapping Name="FactorCaracterizacion" TypeName="Modelo1.FactorCaracterizacion" StoreEntitySet="CaracterizacionSet">
       <EndProperty Name="Factor">
         <ScalarProperty Name="idFactor" ColumnName="Factor_idFactor" />
       </EndProperty>
-      <EndProperty Name="Ponderacion">
-        <ScalarProperty Name="idPonderacion" ColumnName="idPonderacion" />
+      <EndProperty Name="Caracterizacion">
+        <ScalarProperty Name="Valor" ColumnName="Valor" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="PonderacionProyecto" TypeName="Modelo1.PonderacionProyecto" StoreEntitySet="PonderacionSet">
+    <AssociationSetMapping Name="ProyectoCaracterizacion" TypeName="Modelo1.ProyectoCaracterizacion" StoreEntitySet="CaracterizacionSet">
       <EndProperty Name="Proyecto">
         <ScalarProperty Name="idProyecto" ColumnName="Proyecto_idProyecto" />
       </EndProperty>
-      <EndProperty Name="Ponderacion">
-        <ScalarProperty Name="idPonderacion" ColumnName="idPonderacion" />
+      <EndProperty Name="Caracterizacion">
+        <ScalarProperty Name="Valor" ColumnName="Valor" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>
