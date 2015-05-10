@@ -10,20 +10,12 @@ namespace Tp2
     {
         #region Metodos definidos por nosotros
 
-        private static ICollection<Ponderacion> ponderarFactores(Factor factor, int valor)
-        {
-            List<Ponderacion> ponderaciones = new List<Ponderacion>();
-            ponderaciones.Add(new Ponderacion { Factor = factor, valor = valor });
-            return ponderaciones;
-        }
-
-        //metodo para agregar caracteristicas
         public static List<Caracteristica> AgregarCaracteristicas(string carac1, string carac2, string carac3)
         {
-            List<Caracteristica> listaCarac=new List<Caracteristica>();
-            listaCarac.Add(new Caracteristica{denominacion=carac1, valor=0});
-            listaCarac.Add(new Caracteristica{denominacion=carac2, valor=1});
-            listaCarac.Add(new Caracteristica{denominacion=carac3, valor=2});
+            List<Caracteristica> listaCarac = new List<Caracteristica>();
+            listaCarac.Add(new Caracteristica { denominacion = carac1, valor = 0 });
+            listaCarac.Add(new Caracteristica { denominacion = carac2, valor = 1 });
+            listaCarac.Add(new Caracteristica { denominacion = carac3, valor = 2 });
             return listaCarac;
         }
 
@@ -130,9 +122,31 @@ namespace Tp2
             }
         }
 
-        public static void AgregarProyecto(string nombreProy, string descripcion, DateTime fecha)
+        public static void MostrarGerentes()
         {
-            //código para agregar un proyecto nuevo
+            try
+            {
+                using (var contexto = new Modelo1Container())
+                {
+                    var _repGerente = new Repositorio<Gerente>(contexto);
+                    var gerentes = _repGerente.DevolverTodos();
+                    Console.WriteLine("GERENTES DISPONIBLES:");
+                    Console.WriteLine("ID | Nombre y apellido");
+                    foreach (Gerente g in gerentes)
+                    {
+                        Console.WriteLine("{0} | {1}", g.idGerente, g.nombre + " " + g.apellido);
+                    }
+                };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ocurrió un error al intentar mostrar los gerentes.");
+                Console.WriteLine(ex.StackTrace);
+            }
+        }
+
+        public static void AgregarProyecto(string nombreProy, string descripcion, DateTime fecha, int idGerente)
+        {
             try
             {
                 using (var contexto = new Modelo1Container())
@@ -143,6 +157,7 @@ namespace Tp2
                         nombre = nombreProy,
                         descripcion = descripcion,
                         fecha = fecha,
+                        Gerente = BuscarGerente(idGerente),
                     };
                     _repProyecto.Guardar(nuevoProyecto);
                     contexto.SaveChanges();
@@ -155,6 +170,50 @@ namespace Tp2
             }
         }
 
+        public static void MostrarProyectos()
+
+        {
+            try
+            {
+                using (var contexto = new Modelo1Container())
+                {
+                    var _repProyectos = new Repositorio<Proyecto>(contexto);
+                    var proyectos = _repProyectos.DevolverTodos();
+                    Console.WriteLine("PROYECTOS DISPONIBLES: ");
+                    Console.WriteLine("------------------------");
+                    foreach (Proyecto p in proyectos)
+                    {
+                        Console.WriteLine("ID: " + p.idProyecto);
+                        Console.WriteLine("NOMBRE: " + p.nombre);
+                        Console.WriteLine("DESCRIPCION: " + p.descripcion);
+                        Console.WriteLine("FECHA DE CARACTERIZACION: " + p.fecha);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        public static Gerente BuscarGerente(int id)
+        {
+            Gerente gerente = new Gerente();
+            try
+            {
+                using (var contexto = new Modelo1Container())
+                {
+                    var _repGerente = new Repositorio<Gerente>(contexto);
+                    gerente = _repGerente.GetPorId(id);
+                };
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Ocurrio un error al querer encontrar el gerente por el ID");
+                Console.WriteLine(ex.StackTrace);
+            }
+            return gerente;
+        }
 
         #endregion
 
@@ -166,20 +225,28 @@ namespace Tp2
             {
                 try
                 {
+                    Console.Clear();
                     Console.WriteLine("Seleccione un número de opción");
-                    Console.WriteLine("0 - Listar todos los factores con sus caracteríticas");
-                    Console.WriteLine("1 - Crear un nuevo factor con sus caracteríticas");
-                    Console.WriteLine("2 - Salir");
+                    Console.WriteLine("1 - Listar todos los factores con sus caracteríticas");
+                    Console.WriteLine("2 - Crear un nuevo factor con sus caracteríticas");
+                    Console.WriteLine("3 - Agregar un proyecto");
+                    Console.WriteLine("4 - Agregar un gerente");
+                    Console.WriteLine("5 - Listar proyectos");
+                    Console.WriteLine("6 - Listar gerentes");
+                    Console.WriteLine("0 - Salir");
                     valor = Convert.ToInt32(Console.ReadLine());
                     switch (valor)
                     {
-                        case 0:
-                            {
-                                MostrarFactores();
-                                break;
-                            }
                         case 1:
                             {
+                                Console.Clear();
+                                MostrarFactores();
+                                Console.ReadKey();
+                                break;
+                            }
+                        case 2:
+                            {
+                                Console.Clear();
                                 string nombreFactor, carac1, carac2, carac3;
                                 Console.WriteLine("Ingrese un nombre para el factor:");
                                 nombreFactor = Console.ReadLine();
@@ -192,7 +259,67 @@ namespace Tp2
                                 AgregarNuevoFactor(nombreFactor, carac1, carac2, carac3);
                                 break;
                             }
-                        case 2:
+                        case 3:
+                            {
+                                Console.Clear();
+                                string nombreProyecto, descProyecto, diaString, mesString, añoString, idGerenteString;
+                                DateTime fecProyecto;
+
+                                Console.WriteLine("Ingrese un nombre para el proyecto: ");
+                                nombreProyecto = Console.ReadLine();
+
+                                Console.WriteLine("Ingrese una decripcion: ");
+                                descProyecto = Console.ReadLine();
+
+                                Console.WriteLine("Ingrese la fecha del proyecto: ");
+                                Console.WriteLine("DIA: ");
+                                diaString = Console.ReadLine();
+                                Int32 dia = Convert.ToInt32(diaString);
+                                Console.WriteLine("MES: ");
+                                mesString = Console.ReadLine();
+                                Int32 mes = Convert.ToInt32(mesString);
+                                Console.WriteLine("AÑO: ");
+                                añoString = Console.ReadLine();
+                                Int32 año = Convert.ToInt32(añoString);
+                                fecProyecto = new DateTime(año, mes, dia);
+
+                                Console.WriteLine("\n Asigne un gerente al proyecto. Si no aparece en la lista," 
+                                                    + " vuelva al menu principal e ingrese el gerente en cuestión. ");
+                                MostrarGerentes();
+                                Console.WriteLine("Ingrese el ID del gerente que quiere asignar al proyecto: ");
+                                idGerenteString = Console.ReadLine();
+                                Int32 idGerente = Convert.ToInt32(idGerenteString);
+
+                                AgregarProyecto(nombreProyecto,descProyecto,fecProyecto,idGerente);
+                                break;
+                            }
+                        case 4:
+                            {
+                                Console.Clear();
+                                string nombre, apellido;
+                                Console.WriteLine("Ingrese los datos del nuevo gerente: ");
+                                Console.WriteLine("NOMBRE: ");
+                                nombre = Console.ReadLine();
+                                Console.WriteLine("APELLIDO: ");
+                                apellido = Console.ReadLine();
+                                NuevoGerente(nombre, apellido);
+                                break;
+                            }
+                        case 5:
+                            {
+                                Console.Clear();
+                                MostrarProyectos();
+                                Console.ReadLine();
+                                break;
+                            }
+                        case 6:
+                            {
+                                Console.Clear();
+                                MostrarGerentes();
+                                Console.ReadLine();
+                                break;
+                            }
+                        case 0:
                             {
                                 System.Environment.Exit(0);
                                 break;
@@ -212,7 +339,7 @@ namespace Tp2
             /// DESCOMENTAR las lineas inferiores si no hay registros en la BD y se quiere
             /// empezar desde cero.
             /// COMENTAR si ya hay informacion.
-            
+
 
             /*
             try

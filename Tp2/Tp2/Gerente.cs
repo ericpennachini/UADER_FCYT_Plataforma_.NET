@@ -24,5 +24,17 @@ namespace Tp2
         public string apellido { get; set; }
     
         public virtual ICollection<Proyecto> Proyecto { get; set; }
+
+        /// <summary>
+        ///     Sobreescritura del metodo Equals() de Object, para 
+        ///     definir cuándo son iguales dos gerentes.
+        /// </summary>
+        /// <param name="obj">luego se castea a un Gerente</param>
+        /// <returns>true si son dos gerentes iguales, comparando por el id</returns>
+        public override bool Equals(object obj)
+        {
+            Gerente ger = (Gerente)obj;
+            return this.idGerente == ger.idGerente;
+        }
     }
 }
