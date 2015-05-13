@@ -28,10 +28,10 @@ namespace Tp2
                 {
                     var _repFactor = new Repositorio<Factor>(contexto);
                     var factores = _repFactor.DevolverTodos();
-                    var factoresQ = from fac in factores select fac;
+                    //var factoresQ = from fac in factores select fac;
                     Console.WriteLine("FACTORES DISPONIBLES Y SUS CARACTERISTICAS:");
                     Console.WriteLine("ID | Nombre de factor");
-                    foreach (Factor f in factoresQ)
+                    foreach (Factor f in factores)
                     {
                         Console.WriteLine(f.idFactor + " | " + f.nombreFactor + " ");
                         MostrarCaracteristicas(f);
@@ -42,6 +42,21 @@ namespace Tp2
             {
                 Console.WriteLine("Ocurrió un error al intentar mostrar los factores.");
                 Console.WriteLine(ex.StackTrace);
+
+            }
+        }
+
+        public List<Factor> BuscarFactores()
+        {
+            try
+            {
+                using (var contexto = new Modelo1Container())
+                {
+                    var _repFactores = new Repositorio<Factor>(contexto);
+                    var factores = _repFactores.DevolverTodos();
+                }
+            }
+            catch (){
 
             }
         }
@@ -93,12 +108,7 @@ namespace Tp2
             }
         }
 
-        public static void AgregarFactorProyecto(int idFactor)
-        {
-            //código para asociar un factor  a un proyecto
-        }
-
-        public static void NuevoGerente(string nombre, string apellido)
+        public static void AgregarGerente(string nombre, string apellido)
         {
             //código para dar de alta un nuevo gerente
             try
@@ -134,7 +144,7 @@ namespace Tp2
                     Console.WriteLine("ID | Nombre y apellido");
                     foreach (Gerente g in gerentes)
                     {
-                        Console.WriteLine("{0} | {1}", g.idGerente, g.nombre + " " + g.apellido);
+                        Console.WriteLine("{0} | {1}", g.idGerente, g.ToString());
                     }
                 };
             }
@@ -149,25 +159,36 @@ namespace Tp2
         {
             try
             {
+                var gerenteExistente = BuscarGerente(idGerente);
+
                 using (var contexto = new Modelo1Container())
                 {
+                    contexto.Entry(gerenteExistente).State = System.Data.Entity.EntityState.Unchanged;
                     var _repProyecto = new Repositorio<Proyecto>(contexto);
                     var nuevoProyecto = new Proyecto
                     {
                         nombre = nombreProy,
                         descripcion = descripcion,
                         fecha = fecha,
-                        Gerente = BuscarGerente(idGerente),
+                        Gerente = gerenteExistente,                       
                     };
                     _repProyecto.Guardar(nuevoProyecto);
+                    CaracterizarProyecto(nuevoProyecto);
                     contexto.SaveChanges();
+
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Ocurrió un error al intentar dar de alta un proyecto nuevo");
                 Console.WriteLine(ex.StackTrace);
+                Console.ReadKey();
             }
+        }
+
+        private static void CaracterizarProyecto(Proyecto nuevoProyecto)
+        {
+            throw new NotImplementedException();
         }
 
         public static void MostrarProyectos()
@@ -180,19 +201,21 @@ namespace Tp2
                     var _repProyectos = new Repositorio<Proyecto>(contexto);
                     var proyectos = _repProyectos.DevolverTodos();
                     Console.WriteLine("PROYECTOS DISPONIBLES: ");
-                    Console.WriteLine("------------------------");
                     foreach (Proyecto p in proyectos)
                     {
+                        Console.WriteLine("------------------------");
                         Console.WriteLine("ID: " + p.idProyecto);
                         Console.WriteLine("NOMBRE: " + p.nombre);
                         Console.WriteLine("DESCRIPCION: " + p.descripcion);
                         Console.WriteLine("FECHA DE CARACTERIZACION: " + p.fecha);
+                        Console.WriteLine("GERENTE A CARGO: " + p.Gerente.ToString());
                     }
                 }
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine("Ocurrió un error al querer mostrar los datos del proyecto");
+                Console.WriteLine(ex.StackTrace);
             }
         }
 
@@ -215,6 +238,45 @@ namespace Tp2
             return gerente;
         }
 
+        public static void CaracterizarProyecto(int id, List<int> valorFactores, List<int> ponderaciones) 
+        {
+            Proyecto proyecto = new Proyecto();
+            try 
+            {
+                var proyectoExistente = BuscarProyecto(id); 
+                using (var contexto = new Modelo1Container()) 
+                {
+                    contexto.Entry(proyectoExistente).State = System.Data.Entity.EntityState.Unchanged;
+                    
+                    
+                    
+                }
+
+            }
+            catch (Exception ex) 
+            {
+ 
+            }
+        }
+
+        public static Proyecto BuscarProyecto(int id) 
+        {
+            Proyecto proyecto = new Proyecto();
+            try
+            {
+                using (var contexto = new Modelo1Container())
+                {
+                    var _repProyecto = new Repositorio<Proyecto>(contexto);
+                    proyecto = _repProyecto.GetPorId(id);
+                };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ocurrio un error al querer encontrar el gerente por el ID");
+                Console.WriteLine(ex.StackTrace);
+            }
+            return proyecto;
+        }
         #endregion
 
         #region Main
@@ -283,14 +345,22 @@ namespace Tp2
                                 Int32 año = Convert.ToInt32(añoString);
                                 fecProyecto = new DateTime(año, mes, dia);
 
-                                Console.WriteLine("\n Asigne un gerente al proyecto. Si no aparece en la lista," 
+                                Console.WriteLine("Asigne un gerente al proyecto. Si no aparece en la lista," 
                                                     + " vuelva al menu principal e ingrese el gerente en cuestión. ");
                                 MostrarGerentes();
                                 Console.WriteLine("Ingrese el ID del gerente que quiere asignar al proyecto: ");
                                 idGerenteString = Console.ReadLine();
                                 Int32 idGerente = Convert.ToInt32(idGerenteString);
 
+                                Console.WriteLine("Para cada factor, seleccione el valor elegido. Valores permitidos: [0,1,2]");
+                                MostrarFactores();
+                                
+                                Console.WriteLine("");
+
                                 AgregarProyecto(nombreProyecto,descProyecto,fecProyecto,idGerente);
+
+
+
                                 break;
                             }
                         case 4:
@@ -302,7 +372,7 @@ namespace Tp2
                                 nombre = Console.ReadLine();
                                 Console.WriteLine("APELLIDO: ");
                                 apellido = Console.ReadLine();
-                                NuevoGerente(nombre, apellido);
+                                AgregarGerente(nombre, apellido);
                                 break;
                             }
                         case 5:

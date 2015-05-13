@@ -29,12 +29,17 @@ namespace Tp2
         ///     Sobreescritura del metodo Equals() de Object, para 
         ///     definir cuándo son iguales dos gerentes.
         /// </summary>
-        /// <param name="obj">luego se castea a un Gerente</param>
-        /// <returns>true si son dos gerentes iguales, comparando por el id</returns>
+        /// <param name="obj">se castea a un Gerente</param>
+        /// <returns>true si son dos gerentes iguales, nombre y apellido</returns>
         public override bool Equals(object obj)
         {
             Gerente ger = (Gerente)obj;
-            return this.idGerente == ger.idGerente;
+            return (this.nombre == ger.nombre)&&(this.apellido == ger.apellido);
+        }
+
+        public override string ToString()
+        {
+            return nombre + " " + apellido;
         }
     }
 }

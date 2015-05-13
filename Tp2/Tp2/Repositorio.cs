@@ -10,7 +10,6 @@ namespace Tp2
     class Repositorio<T>: IRepositorio<T> where T:class
     {
         private DbSet<T> dbSet;
-
         private DbContext _contexto;
 
         public Repositorio(DbContext contexto)
@@ -21,7 +20,10 @@ namespace Tp2
 
         public void Guardar(T entidad)
         {
-            dbSet.Add(entidad);
+            if (true)
+            {
+                dbSet.Add(entidad);
+            }
         }
 
         public void Actualizar(T entidad)
