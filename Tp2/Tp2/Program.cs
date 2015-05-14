@@ -28,13 +28,19 @@ namespace Tp2
                 {
                     var _repFactor = new Repositorio<Factor>(contexto);
                     var factores = _repFactor.DevolverTodos();
-                    //var factoresQ = from fac in factores select fac;
                     Console.WriteLine("FACTORES DISPONIBLES Y SUS CARACTERISTICAS:");
                     Console.WriteLine("ID | Nombre de factor");
-                    foreach (Factor f in factores)
+                    if (factores.Count<Factor>() != 0)
                     {
-                        Console.WriteLine(f.idFactor + " | " + f.nombreFactor + " ");
-                        MostrarCaracteristicas(f);
+                        foreach (Factor f in factores)
+                        {
+                            Console.WriteLine(f.idFactor + " | " + f.nombreFactor + " ");
+                            MostrarCaracteristicas(f);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("(no hay factores disponibles)");
                     }
                 };
             }
@@ -46,20 +52,20 @@ namespace Tp2
             }
         }
 
-        public List<Factor> BuscarFactores()
-        {
-            try
-            {
-                using (var contexto = new Modelo1Container())
-                {
-                    var _repFactores = new Repositorio<Factor>(contexto);
-                    var factores = _repFactores.DevolverTodos();
-                }
-            }
-            catch (){
+        /* public List<Factor> BuscarFactores()
+         {
+             try
+             {
+                 using (var contexto = new Modelo1Container())
+                 {
+                     var _repFactores = new Repositorio<Factor>(contexto);
+                     var factores = _repFactores.DevolverTodos();
+                 }
+             }
+             catch (Exception Ex){
 
-            }
-        }
+             }
+         }*/
 
         public static void MostrarCaracteristicas(Factor fact)
         {
@@ -71,9 +77,16 @@ namespace Tp2
                     var _repCaracteristica = new Repositorio<Caracteristica>(contexto);
                     var caracteristicas = _repCaracteristica.DevolverTodos();
                     var caracQ = from c in caracteristicas where c.Factor.idFactor == fact.idFactor select c;
-                    foreach (Caracteristica c in caracQ)
+                    if (caracQ.Count<Caracteristica>() != 0)
                     {
-                        Console.WriteLine("---- " + c.valor + " | " + c.denominacion);
+                        foreach (Caracteristica c in caracQ)
+                        {
+                            Console.WriteLine("---- " + c.valor + " | " + c.denominacion);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("(no hay caracteristicas disponibles para este factor)");
                     }
                 }
             }
@@ -142,9 +155,16 @@ namespace Tp2
                     var gerentes = _repGerente.DevolverTodos();
                     Console.WriteLine("GERENTES DISPONIBLES:");
                     Console.WriteLine("ID | Nombre y apellido");
-                    foreach (Gerente g in gerentes)
+                    if (gerentes.Count<Gerente>() != 0)
                     {
-                        Console.WriteLine("{0} | {1}", g.idGerente, g.ToString());
+                        foreach (Gerente g in gerentes)
+                        {
+                            Console.WriteLine("{0} | {1}", g.idGerente, g.ToString());
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("(no hay gerentes dispobibles)");
                     }
                 };
             }
@@ -170,12 +190,12 @@ namespace Tp2
                         nombre = nombreProy,
                         descripcion = descripcion,
                         fecha = fecha,
-                        Gerente = gerenteExistente,                       
+                        Gerente = gerenteExistente,
                     };
                     _repProyecto.Guardar(nuevoProyecto);
-                    CaracterizarProyecto(nuevoProyecto);
                     contexto.SaveChanges();
-
+                    int idproyecto = nuevoProyecto.idProyecto;
+                    CaracterizarProyecto(idproyecto);
                 }
             }
             catch (Exception ex)
@@ -186,13 +206,7 @@ namespace Tp2
             }
         }
 
-        private static void CaracterizarProyecto(Proyecto nuevoProyecto)
-        {
-            throw new NotImplementedException();
-        }
-
         public static void MostrarProyectos()
-
         {
             try
             {
@@ -201,14 +215,21 @@ namespace Tp2
                     var _repProyectos = new Repositorio<Proyecto>(contexto);
                     var proyectos = _repProyectos.DevolverTodos();
                     Console.WriteLine("PROYECTOS DISPONIBLES: ");
-                    foreach (Proyecto p in proyectos)
+                    if (proyectos.Count<Proyecto>() != 0)
                     {
-                        Console.WriteLine("------------------------");
-                        Console.WriteLine("ID: " + p.idProyecto);
-                        Console.WriteLine("NOMBRE: " + p.nombre);
-                        Console.WriteLine("DESCRIPCION: " + p.descripcion);
-                        Console.WriteLine("FECHA DE CARACTERIZACION: " + p.fecha);
-                        Console.WriteLine("GERENTE A CARGO: " + p.Gerente.ToString());
+                        foreach (Proyecto p in proyectos)
+                        {
+                            Console.WriteLine("------------------------");
+                            Console.WriteLine("ID: " + p.idProyecto);
+                            Console.WriteLine("NOMBRE: " + p.nombre);
+                            Console.WriteLine("DESCRIPCION: " + p.descripcion);
+                            Console.WriteLine("FECHA DE CARACTERIZACION: " + p.fecha);
+                            Console.WriteLine("GERENTE A CARGO: " + p.Gerente.ToString());
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("(no hay proyectos disponibles)");
                     }
                 }
             }
@@ -230,7 +251,7 @@ namespace Tp2
                     gerente = _repGerente.GetPorId(id);
                 };
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Ocurrio un error al querer encontrar el gerente por el ID");
                 Console.WriteLine(ex.StackTrace);
@@ -238,28 +259,61 @@ namespace Tp2
             return gerente;
         }
 
-        public static void CaracterizarProyecto(int id, List<int> valorFactores, List<int> ponderaciones) 
+        public static void CaracterizarProyecto(int idproyecto)
         {
+            int idfactor;
+            short valorp;
+            short ponderacionp;
             Proyecto proyecto = new Proyecto();
-            try 
+            try
             {
-                var proyectoExistente = BuscarProyecto(id); 
-                using (var contexto = new Modelo1Container()) 
+                using (var contexto = new Modelo1Container())
                 {
+                    var proyectoExistente = BuscarProyecto(idproyecto);
                     contexto.Entry(proyectoExistente).State = System.Data.Entity.EntityState.Unchanged;
-                    
-                    
-                    
+
+                    int i = 0;
+                    while (i == 0)
+                    {
+                        Console.WriteLine("A Continuacion seleccione un factor de la lista de factores para agregar a la caracterizacion");
+                        //MostrarFactores();
+                        idfactor = Convert.ToInt32(Console.ReadLine());
+                        var factorExistente = BuscarFactor(idfactor);
+                        contexto.Entry(factorExistente).State = System.Data.Entity.EntityState.Unchanged;
+                        Console.WriteLine("Ingrese un valor");
+                        valorp = Convert.ToInt16(Console.ReadLine());
+                        Console.WriteLine("Ingrese una ponderacion");
+                        ponderacionp = Convert.ToInt16(Console.ReadLine());
+                        var _repCaracterizacion = new Repositorio<Caracterizacion>(contexto);
+                        var nuevoCaracterizar = new Caracterizacion
+                        {
+                            Valor = valorp,
+                            Ponderacion = ponderacionp,
+                            Factor = factorExistente,
+                            Proyecto = proyectoExistente,
+                        };
+
+                        _repCaracterizacion.Guardar(nuevoCaracterizar);
+
+
+                        Console.WriteLine("Agregar mas factores a la carecterizacion ? 0 = Si , Cualquier otro valor = No");
+                        i = Convert.ToInt32(Console.ReadLine());
+                    }
+
+                    contexto.SaveChanges();
+
                 }
 
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
- 
+                Console.WriteLine("Ocurrió un error al intentar caracterizar el proyecto.");
+                Console.WriteLine(ex.StackTrace);
+                Console.ReadKey();
             }
         }
 
-        public static Proyecto BuscarProyecto(int id) 
+        public static Proyecto BuscarProyecto(int id)
         {
             Proyecto proyecto = new Proyecto();
             try
@@ -276,6 +330,25 @@ namespace Tp2
                 Console.WriteLine(ex.StackTrace);
             }
             return proyecto;
+        }
+
+        public static Factor BuscarFactor(int id)
+        {
+            Factor factor = new Factor();
+            try
+            {
+                using (var contexto = new Modelo1Container())
+                {
+                    var _repFactor = new Repositorio<Factor>(contexto);
+                    factor = _repFactor.GetPorId(id);
+                };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ocurrio un error al querer encontrar el factor por el ID");
+                Console.WriteLine(ex.StackTrace);
+            }
+            return factor;
         }
         #endregion
 
@@ -345,7 +418,7 @@ namespace Tp2
                                 Int32 año = Convert.ToInt32(añoString);
                                 fecProyecto = new DateTime(año, mes, dia);
 
-                                Console.WriteLine("Asigne un gerente al proyecto. Si no aparece en la lista," 
+                                Console.WriteLine("Asigne un gerente al proyecto. Si no aparece en la lista,"
                                                     + " vuelva al menu principal e ingrese el gerente en cuestión. ");
                                 MostrarGerentes();
                                 Console.WriteLine("Ingrese el ID del gerente que quiere asignar al proyecto: ");
@@ -354,10 +427,11 @@ namespace Tp2
 
                                 Console.WriteLine("Para cada factor, seleccione el valor elegido. Valores permitidos: [0,1,2]");
                                 MostrarFactores();
-                                
+
                                 Console.WriteLine("");
 
-                                AgregarProyecto(nombreProyecto,descProyecto,fecProyecto,idGerente);
+
+                                AgregarProyecto(nombreProyecto, descProyecto, fecProyecto, idGerente);
 
 
 

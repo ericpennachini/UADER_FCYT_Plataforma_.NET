@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/09/2015 10:10:04
+-- Date Created: 05/14/2015 16:27:52
 -- Generated from EDMX file: C:\Users\EricDaniel\Documents\GitHub\UADER_FCYT_Plataforma_.NET\Tp2\Tp2\Modelo1.edmx
 -- --------------------------------------------------
 
@@ -23,6 +23,12 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_GerenteProyecto]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ProyectoSet] DROP CONSTRAINT [FK_GerenteProyecto];
 GO
+IF OBJECT_ID(N'[dbo].[FK_FactorCaracterizacion]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CaracterizacionSet] DROP CONSTRAINT [FK_FactorCaracterizacion];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProyectoCaracterizacion]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CaracterizacionSet] DROP CONSTRAINT [FK_ProyectoCaracterizacion];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -39,6 +45,9 @@ IF OBJECT_ID(N'[dbo].[ProyectoSet]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[GerenteSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[GerenteSet];
+GO
+IF OBJECT_ID(N'[dbo].[CaracterizacionSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CaracterizacionSet];
 GO
 
 -- --------------------------------------------------
@@ -81,7 +90,8 @@ GO
 
 -- Creating table 'CaracterizacionSet'
 CREATE TABLE [dbo].[CaracterizacionSet] (
-    [Valor] smallint IDENTITY(1,1) NOT NULL,
+    [idCaracterizacion] int  IDENTITY(1,1) NOT NULL,
+    [Valor] smallint NOT NULL,
     [Ponderacion] smallint  NOT NULL,
     [Factor_idFactor] int  NOT NULL,
     [Proyecto_idProyecto] int  NOT NULL
@@ -116,10 +126,10 @@ ADD CONSTRAINT [PK_GerenteSet]
     PRIMARY KEY CLUSTERED ([idGerente] ASC);
 GO
 
--- Creating primary key on [Valor] in table 'CaracterizacionSet'
+-- Creating primary key on [idCaracterizacion] in table 'CaracterizacionSet'
 ALTER TABLE [dbo].[CaracterizacionSet]
 ADD CONSTRAINT [PK_CaracterizacionSet]
-    PRIMARY KEY CLUSTERED ([Valor] ASC);
+    PRIMARY KEY CLUSTERED ([idCaracterizacion] ASC);
 GO
 
 -- --------------------------------------------------

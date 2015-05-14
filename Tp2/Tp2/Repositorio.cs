@@ -20,10 +20,7 @@ namespace Tp2
 
         public void Guardar(T entidad)
         {
-            if (true)
-            {
-                dbSet.Add(entidad);
-            }
+            dbSet.Add(entidad);
         }
 
         public void Actualizar(T entidad)

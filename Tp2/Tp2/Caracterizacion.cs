@@ -14,6 +14,7 @@ namespace Tp2
     
     public partial class Caracterizacion
     {
+        public int idCaracterizacion { get; set; }
         public short Valor { get; set; }
         public short Ponderacion { get; set; }
     

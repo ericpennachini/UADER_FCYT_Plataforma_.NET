@@ -64,8 +64,9 @@
   </EntityType>
   <EntityType Name="CaracterizacionSet">
     <Key>
-      <PropertyRef Name="Valor" />
+      <PropertyRef Name="idCaracterizacion" />
     </Key>
+    <Property Name="idCaracterizacion" Type="int" Nullable="false" />
     <Property Name="Valor" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Ponderacion" Type="smallint" Nullable="false" />
     <Property Name="Factor_idFactor" Type="int" Nullable="false" />
@@ -194,8 +195,9 @@
         </Association>
         <EntityType Name="Caracterizacion">
           <Key>
-            <PropertyRef Name="Valor" />
+            <PropertyRef Name="idCaracterizacion" />
           </Key>
+          <Property Name="idCaracterizacion" Type="Int32" Nullable="false" />
           <Property Name="Valor" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Ponderacion" Type="Int16" Nullable="false" />
           <NavigationProperty Name="Factor" Relationship="Modelo1.FactorCaracterizacion" FromRole="Caracterizacion" ToRole="Factor" />
@@ -254,6 +256,7 @@
     <EntitySetMapping Name="CaracterizacionSet">
       <EntityTypeMapping TypeName="IsTypeOf(Modelo1.Caracterizacion)">
         <MappingFragment StoreEntitySet="CaracterizacionSet">
+          <ScalarProperty Name="idCaracterizacion" ColumnName="idCaracterizacion" />
           <ScalarProperty Name="Valor" ColumnName="Valor" />
           <ScalarProperty Name="Ponderacion" ColumnName="Ponderacion" />
         </MappingFragment>
@@ -280,7 +283,7 @@
         <ScalarProperty Name="idFactor" ColumnName="Factor_idFactor" />
       </EndProperty>
       <EndProperty Name="Caracterizacion">
-        <ScalarProperty Name="Valor" ColumnName="Valor" />
+        <ScalarProperty Name="idCaracterizacion" ColumnName="idCaracterizacion" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="ProyectoCaracterizacion" TypeName="Modelo1.ProyectoCaracterizacion" StoreEntitySet="CaracterizacionSet">
@@ -288,7 +291,7 @@
         <ScalarProperty Name="idProyecto" ColumnName="Proyecto_idProyecto" />
       </EndProperty>
       <EndProperty Name="Caracterizacion">
-        <ScalarProperty Name="Valor" ColumnName="Valor" />
+        <ScalarProperty Name="idCaracterizacion" ColumnName="idCaracterizacion" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>
