@@ -271,7 +271,6 @@ namespace Tp2
                 {
                     var proyectoExistente = BuscarProyecto(idproyecto);
                     contexto.Entry(proyectoExistente).State = System.Data.Entity.EntityState.Unchanged;
-
                     int i = 0;
                     while (i == 0)
                     {
