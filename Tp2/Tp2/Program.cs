@@ -194,8 +194,6 @@ namespace Tp2
                     };
                     _repProyecto.Guardar(nuevoProyecto);
                     contexto.SaveChanges();
-                    int idproyecto = nuevoProyecto.idProyecto;
-                    CaracterizarProyecto(idproyecto);
                 }
             }
             catch (Exception ex)
@@ -259,7 +257,7 @@ namespace Tp2
             return gerente;
         }
 
-        public static void CaracterizarProyecto(int idproyecto)
+        public static void CaracterizarProyecto()
         {
             int idfactor;
             short valorp;
@@ -269,13 +267,13 @@ namespace Tp2
             {
                 using (var contexto = new Modelo1Container())
                 {
-                    var proyectoExistente = BuscarProyecto(idproyecto);
+                    var proyectoExistente = BuscarUltimoProyecto();
                     contexto.Entry(proyectoExistente).State = System.Data.Entity.EntityState.Unchanged;
                     int i = 0;
                     while (i == 0)
                     {
                         Console.WriteLine("A Continuacion seleccione un factor de la lista de factores para agregar a la caracterizacion");
-                        //MostrarFactores();
+                        MostrarFactores();
                         idfactor = Convert.ToInt32(Console.ReadLine());
                         var factorExistente = BuscarFactor(idfactor);
                         contexto.Entry(factorExistente).State = System.Data.Entity.EntityState.Unchanged;
@@ -294,13 +292,11 @@ namespace Tp2
 
                         _repCaracterizacion.Guardar(nuevoCaracterizar);
 
-
                         Console.WriteLine("Agregar mas factores a la carecterizacion ? 0 = Si , Cualquier otro valor = No");
                         i = Convert.ToInt32(Console.ReadLine());
                     }
 
                     contexto.SaveChanges();
-
                 }
 
             }
@@ -312,7 +308,7 @@ namespace Tp2
             }
         }
 
-        public static Proyecto BuscarProyecto(int id)
+        public static Proyecto BuscarUltimoProyecto()
         {
             Proyecto proyecto = new Proyecto();
             try
@@ -320,13 +316,23 @@ namespace Tp2
                 using (var contexto = new Modelo1Container())
                 {
                     var _repProyecto = new Repositorio<Proyecto>(contexto);
-                    proyecto = _repProyecto.GetPorId(id);
+                    var proyectos = _repProyecto.DevolverTodos();
+                    //proyecto = _repProyecto.GetUltimo();
+                    int max = 0;
+                    foreach (var p in proyectos)
+                    {
+                        if (p.idProyecto > max)
+                        {
+                            proyecto = p;
+                            max = p.idProyecto;
+                        }  
+                    }
                 };
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Ocurrio un error al querer encontrar el gerente por el ID");
-                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Ocurrio un error al querer encontrar el ultimo proyecto agregado");
+                Console.WriteLine(ex.GetType());
             }
             return proyecto;
         }
@@ -424,14 +430,9 @@ namespace Tp2
                                 idGerenteString = Console.ReadLine();
                                 Int32 idGerente = Convert.ToInt32(idGerenteString);
 
-                                Console.WriteLine("Para cada factor, seleccione el valor elegido. Valores permitidos: [0,1,2]");
-                                MostrarFactores();
-
-                                Console.WriteLine("");
-
-
                                 AgregarProyecto(nombreProyecto, descProyecto, fecProyecto, idGerente);
 
+                                CaracterizarProyecto();
 
 
                                 break;

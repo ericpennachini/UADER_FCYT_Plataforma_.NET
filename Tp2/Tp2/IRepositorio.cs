@@ -11,6 +11,7 @@ namespace Tp2
         void Guardar(T entidad);
         void Actualizar(T entidad);
         T GetPorId(int id);
+        T GetUltimo();
         IQueryable<T> DevolverTodos();
     }
 }

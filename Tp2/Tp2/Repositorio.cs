@@ -37,5 +37,10 @@ namespace Tp2
         {
             return dbSet;
         }
+
+        public T GetUltimo()
+        {
+            return dbSet.Last();
+        }
     }
 }
