@@ -217,12 +217,14 @@ namespace Tp2
                     {
                         foreach (Proyecto p in proyectos)
                         {
-                            Console.WriteLine("------------------------");
+                            Console.WriteLine("-------------------------------------------------------------");
                             Console.WriteLine("ID: " + p.idProyecto);
                             Console.WriteLine("NOMBRE: " + p.nombre);
                             Console.WriteLine("DESCRIPCION: " + p.descripcion);
                             Console.WriteLine("FECHA DE CARACTERIZACION: " + p.fecha);
                             Console.WriteLine("GERENTE A CARGO: " + p.Gerente.ToString());
+                            Console.WriteLine("CARACTERIZACIÓN");
+                            MostrarCaracterizacionProyecto(p);
                         }
                     }
                     else
@@ -235,6 +237,32 @@ namespace Tp2
             {
                 Console.WriteLine("Ocurrió un error al querer mostrar los datos del proyecto");
                 Console.WriteLine(ex.StackTrace);
+                Console.ReadKey();
+            }
+        }
+
+        private static void MostrarCaracterizacionProyecto(Proyecto p)
+        {
+            try
+            {
+                using (var contexto = new Modelo1Container())
+                {
+                    var _repCaracterizacion = new Repositorio<Caracterizacion>(contexto);
+                    var caracterizaciones = _repCaracterizacion.DevolverTodos();
+                    var caractQ = from c in caracterizaciones where c.Proyecto.idProyecto == p.idProyecto select c;
+                    foreach (Caracterizacion c in caractQ)
+                    {
+                        Console.WriteLine("--- Factor: " + c.Factor.nombreFactor);
+                        Console.WriteLine("--- Valor elegido: " + c.Valor);
+                        Console.WriteLine("--- Ponderacion: " + c.Ponderacion);
+                    }
+                };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ocurrió un error al querer mostrar la caracterización del proyecto");
+                Console.WriteLine(ex.StackTrace);
+                Console.ReadKey();
             }
         }
 
@@ -269,6 +297,7 @@ namespace Tp2
                 {
                     var proyectoExistente = BuscarUltimoProyecto();
                     contexto.Entry(proyectoExistente).State = System.Data.Entity.EntityState.Unchanged;
+                    var _repCaracterizacion = new Repositorio<Caracterizacion>(contexto);
                     int i = 0;
                     while (i == 0)
                     {
@@ -281,7 +310,7 @@ namespace Tp2
                         valorp = Convert.ToInt16(Console.ReadLine());
                         Console.WriteLine("Ingrese una ponderacion");
                         ponderacionp = Convert.ToInt16(Console.ReadLine());
-                        var _repCaracterizacion = new Repositorio<Caracterizacion>(contexto);
+                        
                         var nuevoCaracterizar = new Caracterizacion
                         {
                             Valor = valorp,
@@ -291,7 +320,7 @@ namespace Tp2
                         };
 
                         _repCaracterizacion.Guardar(nuevoCaracterizar);
-
+                        
                         Console.WriteLine("Agregar mas factores a la carecterizacion ? 0 = Si , Cualquier otro valor = No");
                         i = Convert.ToInt32(Console.ReadLine());
                     }

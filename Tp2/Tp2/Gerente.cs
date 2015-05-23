@@ -28,6 +28,6 @@ namespace Tp2
         public override string ToString()
         {
             return nombre + " " + apellido;
-        }
+        }
     }
 }

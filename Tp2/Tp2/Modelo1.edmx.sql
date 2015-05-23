@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/14/2015 16:27:52
+-- Date Created: 05/23/2015 12:21:20
 -- Generated from EDMX file: C:\Users\EricDaniel\Documents\GitHub\UADER_FCYT_Plataforma_.NET\Tp2\Tp2\Modelo1.edmx
 -- --------------------------------------------------
 
@@ -20,11 +20,11 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_CaracteristicaFactor]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[CaracteristicaSet] DROP CONSTRAINT [FK_CaracteristicaFactor];
 GO
-IF OBJECT_ID(N'[dbo].[FK_GerenteProyecto]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ProyectoSet] DROP CONSTRAINT [FK_GerenteProyecto];
-GO
 IF OBJECT_ID(N'[dbo].[FK_FactorCaracterizacion]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[CaracterizacionSet] DROP CONSTRAINT [FK_FactorCaracterizacion];
+GO
+IF OBJECT_ID(N'[dbo].[FK_GerenteProyecto]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProyectoSet] DROP CONSTRAINT [FK_GerenteProyecto];
 GO
 IF OBJECT_ID(N'[dbo].[FK_ProyectoCaracterizacion]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[CaracterizacionSet] DROP CONSTRAINT [FK_ProyectoCaracterizacion];
@@ -34,20 +34,20 @@ GO
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FactorSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[FactorSet];
-GO
 IF OBJECT_ID(N'[dbo].[CaracteristicaSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[CaracteristicaSet];
 GO
-IF OBJECT_ID(N'[dbo].[ProyectoSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ProyectoSet];
+IF OBJECT_ID(N'[dbo].[CaracterizacionSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CaracterizacionSet];
+GO
+IF OBJECT_ID(N'[dbo].[FactorSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[FactorSet];
 GO
 IF OBJECT_ID(N'[dbo].[GerenteSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[GerenteSet];
 GO
-IF OBJECT_ID(N'[dbo].[CaracterizacionSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[CaracterizacionSet];
+IF OBJECT_ID(N'[dbo].[ProyectoSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProyectoSet];
 GO
 
 -- --------------------------------------------------
@@ -90,8 +90,8 @@ GO
 
 -- Creating table 'CaracterizacionSet'
 CREATE TABLE [dbo].[CaracterizacionSet] (
-    [idCaracterizacion] int  IDENTITY(1,1) NOT NULL,
-    [Valor] smallint NOT NULL,
+    [idCaracterizacion] int IDENTITY(1,1) NOT NULL,
+    [Valor] smallint  NOT NULL,
     [Ponderacion] smallint  NOT NULL,
     [Factor_idFactor] int  NOT NULL,
     [Proyecto_idProyecto] int  NOT NULL
