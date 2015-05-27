@@ -8,3 +8,4 @@ D:\Documents\Visual Studio 2013\Projects\Tp2\Tp2\bin\Debug\EntityFramework.SqlSe
 D:\Documents\Visual Studio 2013\Projects\Tp2\Tp2\obj\Debug\Tp2.csprojResolveAssemblyReference.cache
 D:\Documents\Visual Studio 2013\Projects\Tp2\Tp2\obj\Debug\Tp2.exe
 D:\Documents\Visual Studio 2013\Projects\Tp2\Tp2\obj\Debug\Tp2.pdb
+C:\Users\EricDaniel\Documents\GitHub\UADER_FCYT_Plataforma_.NET\Tp2\Tp2\bin\Debug\Tp2.exe.config
