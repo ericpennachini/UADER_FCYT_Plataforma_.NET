@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AccesoDatos
+namespace PNet.AccesoDatos
 {
     using System;
     using System.Collections.Generic;

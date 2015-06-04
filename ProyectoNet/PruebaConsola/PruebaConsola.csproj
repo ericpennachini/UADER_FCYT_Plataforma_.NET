@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9D53C642-BFD3-47BD-8624-E39C0BF2D3CB}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{D1B71D61-7B41-4AF6-B25A-17EE6209FA15}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PNet.Dominio</RootNamespace>
-    <AssemblyName>PNet.Dominio</AssemblyName>
+    <RootNamespace>PruebaConsola</RootNamespace>
+    <AssemblyName>PruebaConsola</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,7 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
@@ -46,16 +49,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modelo\CaracteristicaD.cs" />
-    <Compile Include="Modelo\CaracterizacionD.cs" />
-    <Compile Include="Modelo\FactorD.cs" />
-    <Compile Include="Modelo\GerenteD.cs" />
-    <Compile Include="Modelo\ProyectoD.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PNet.Dominio\PNet.Dominio.csproj">
+      <Project>{9d53c642-bfd3-47bd-8624-e39c0bf2d3cb}</Project>
+      <Name>PNet.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PNet.Repositorio\PNet.Repositorio.csproj">
+      <Project>{ff953662-d8d1-48d7-be2f-bc7a88a9dbf6}</Project>
+      <Name>PNet.Repositorio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -10,8 +10,8 @@ namespace PNet.Repositorio
 {
     public class Repositorio<T>:IRepositorio<T> where T: class
     {
-        private DbSet<T> dbSet;
-        private DbContext _contexto;
+        protected DbSet<T> dbSet;
+        protected DbContext _contexto;
 
         public Repositorio(DbContext contexto)
         {
@@ -19,9 +19,13 @@ namespace PNet.Repositorio
             dbSet = contexto.Set<T>();
         }
 
-        public void Guardar(T entidad)
+        public void Guardar(T entidad, int id)
         {
-            dbSet.Add(entidad);
+            if (id == 0)
+            {
+                dbSet.Add(entidad);
+            }
+            _contexto.SaveChanges();
         }
 
         public void Actualizar(T entidad)

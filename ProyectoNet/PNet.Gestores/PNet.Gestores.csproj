@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9D53C642-BFD3-47BD-8624-E39C0BF2D3CB}</ProjectGuid>
+    <ProjectGuid>{CB2AE077-55D8-476E-81DA-E05E3DFAF251}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PNet.Dominio</RootNamespace>
-    <AssemblyName>PNet.Dominio</AssemblyName>
+    <RootNamespace>PNet.Gestores</RootNamespace>
+    <AssemblyName>PNet.Gestores</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -46,12 +46,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modelo\CaracteristicaD.cs" />
-    <Compile Include="Modelo\CaracterizacionD.cs" />
-    <Compile Include="Modelo\FactorD.cs" />
-    <Compile Include="Modelo\GerenteD.cs" />
-    <Compile Include="Modelo\ProyectoD.cs" />
+    <Compile Include="GestorProyecto.cs" />
+    <Compile Include="IGestor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PNet.AccesoDatos2\PNet.AccesoDatos.csproj">
+      <Project>{c8fe6b1f-a401-45db-90e1-6d255002a99e}</Project>
+      <Name>PNet.AccesoDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PNet.Dominio\PNet.Dominio.csproj">
+      <Project>{9d53c642-bfd3-47bd-8624-e39c0bf2d3cb}</Project>
+      <Name>PNet.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PNet.DTO\PNet.DTO.csproj">
+      <Project>{7367de59-d972-4008-b585-80fe477b6f55}</Project>
+      <Name>PNet.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PNet.Repositorio\PNet.Repositorio.csproj">
+      <Project>{ff953662-d8d1-48d7-be2f-bc7a88a9dbf6}</Project>
+      <Name>PNet.Repositorio</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
