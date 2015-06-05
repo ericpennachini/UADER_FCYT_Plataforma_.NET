@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using PNet.Dominio;
 using System.Data.Entity;
 
+
 namespace PNet.Repositorio
 {
     public class RepositorioFactor : Repositorio<FactorD>
