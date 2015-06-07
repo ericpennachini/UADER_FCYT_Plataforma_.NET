@@ -1,9 +1,0 @@
-C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.AccesoDatos2\bin\Debug\PNet.AccesoDatos.dll.config
-C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.AccesoDatos2\bin\Debug\PNet.AccesoDatos.dll
-C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.AccesoDatos2\bin\Debug\PNet.AccesoDatos.pdb
-C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.AccesoDatos2\bin\Debug\EntityFramework.dll
-C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.AccesoDatos2\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.AccesoDatos2\bin\Debug\EntityFramework.xml
-C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.AccesoDatos2\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.AccesoDatos2\obj\Debug\PNet.AccesoDatos.dll
-C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.AccesoDatos2\obj\Debug\PNet.AccesoDatos.pdb
