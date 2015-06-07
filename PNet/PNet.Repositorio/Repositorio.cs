@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity.Design;
+using PNet.Dominio.Modelo;
 
 namespace PNet.Repositorio
 {

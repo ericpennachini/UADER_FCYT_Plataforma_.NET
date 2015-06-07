@@ -4,8 +4,8 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EBE307C3-DBBA-4581-88D3-D6906EB8DCF2}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{C8FE6B1F-A401-45DB-90E1-6D255002A99E}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AccesoDatos</RootNamespace>
     <AssemblyName>AccesoDatos</AssemblyName>
@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
     <EntityDeploy Include="Modelo1.edmx">
@@ -45,43 +48,18 @@
     <None Include="Modelo1.edmx.diagram">
       <DependentUpon>Modelo1.edmx</DependentUpon>
     </None>
-    <None Include="Modelo1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Modelo1.cs</LastGenOutput>
-      <DependentUpon>Modelo1.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Caracteristica.cs">
-      <DependentUpon>Modelo1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Caracterizacion.cs">
-      <DependentUpon>Modelo1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Factor.cs">
-      <DependentUpon>Modelo1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Gerente.cs">
-      <DependentUpon>Modelo1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Modelo1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Modelo1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Modelo1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Modelo1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Modelo1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Proyecto.cs">
-      <DependentUpon>Modelo1.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +81,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PNet.Dominio\PNet.Dominio.csproj">
+      <Project>{9d53c642-bfd3-47bd-8624-e39c0bf2d3cb}</Project>
+      <Name>PNet.Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

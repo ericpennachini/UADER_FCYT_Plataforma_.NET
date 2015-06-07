@@ -7,12 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AccesoDatos
+namespace PNet.AccesoDatos
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+    using PNet.Dominio.Modelo;
+
     public partial class Modelo1Container : DbContext
     {
         public Modelo1Container()

@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PNet.Repositorio", "PNet.Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PNet.Dominio", "PNet.Dominio\PNet.Dominio.csproj", "{9D53C642-BFD3-47BD-8624-E39C0BF2D3CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PNet.AccesoDatos", "PNet.AccesoDatos2\PNet.AccesoDatos.csproj", "{C8FE6B1F-A401-45DB-90E1-6D255002A99E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PNet.AccesoDatos", "AccesoDatos\PNet.AccesoDatos.csproj", "{C8FE6B1F-A401-45DB-90E1-6D255002A99E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PNet.DTO", "PNet.DTO\PNet.DTO.csproj", "{7367DE59-D972-4008-B585-80FE477B6F55}"
 EndProject

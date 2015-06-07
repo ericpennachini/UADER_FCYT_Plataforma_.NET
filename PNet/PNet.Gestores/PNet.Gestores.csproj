@@ -52,7 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PNet.AccesoDatos2\PNet.AccesoDatos.csproj">
+    <ProjectReference Include="..\AccesoDatos\PNet.AccesoDatos.csproj">
       <Project>{c8fe6b1f-a401-45db-90e1-6d255002a99e}</Project>
       <Name>PNet.AccesoDatos</Name>
     </ProjectReference>
