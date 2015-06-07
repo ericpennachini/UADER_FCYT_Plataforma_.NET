@@ -56,10 +56,6 @@
       <Project>{9d53c642-bfd3-47bd-8624-e39c0bf2d3cb}</Project>
       <Name>PNet.Dominio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PNet.Repositorio\PNet.Repositorio.csproj">
-      <Project>{ff953662-d8d1-48d7-be2f-bc7a88a9dbf6}</Project>
-      <Name>PNet.Repositorio</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

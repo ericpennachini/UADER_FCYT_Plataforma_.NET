@@ -7,3 +7,12 @@ C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.Dominio\bin\Debug\EntityFramework.d
 C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.Dominio\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.Dominio\bin\Debug\EntityFramework.xml
 C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.Dominio\bin\Debug\EntityFramework.SqlServer.xml
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Dominio\bin\Debug\PNet.Dominio.dll.config
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Dominio\bin\Debug\PNet.Dominio.dll
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Dominio\bin\Debug\PNet.Dominio.pdb
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Dominio\bin\Debug\EntityFramework.dll
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Dominio\bin\Debug\EntityFramework.SqlServer.dll
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Dominio\bin\Debug\EntityFramework.xml
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Dominio\bin\Debug\EntityFramework.SqlServer.xml
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Dominio\obj\Debug\PNet.Dominio.dll
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Dominio\obj\Debug\PNet.Dominio.pdb

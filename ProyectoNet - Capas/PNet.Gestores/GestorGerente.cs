@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using PNet.Dominio.Modelo;
 
 namespace PNet.Gestores
 {
@@ -15,9 +16,9 @@ namespace PNet.Gestores
     {
         RepositorioGerente _repGerente;
         Modelo1Container _contexto;
-        GerenteD _gerente;
+        Gerente _gerente;
 
-        GestorGerente() 
+        public GestorGerente() 
         {
             try 
             { 
@@ -39,7 +40,7 @@ namespace PNet.Gestores
             {
                 if (entidad.idGerente > 0)
                 {
-                    GerenteD _gMod = DTOaModelo(entidad);
+                    Gerente _gMod = DTOaModelo(entidad);
                     _gerente = _repGerente.GetPorId(entidad.idGerente);
                     this.ActualizarEvento(_gMod, _gerente);
                 }
@@ -85,8 +86,8 @@ namespace PNet.Gestores
      
             try
             {
-                IQueryable<GerenteD> _gLista=_repGerente.DevolverTodos();
-                foreach(GerenteD g in _gLista)
+                IQueryable<Gerente> _gLista=_repGerente.DevolverTodos();
+                foreach(Gerente g in _gLista)
                 {
                     _gDTOLista.Add(ModeloaDTO(g));
                 }
@@ -108,14 +109,14 @@ namespace PNet.Gestores
     
         //Métodos propios
 
-        private void ActualizarEvento(GerenteD _gMod, GerenteD _gerente)
+        private void ActualizarEvento(Gerente _gMod, Gerente _gerente)
         {
             throw new NotImplementedException();
         }
 
-        private GerenteD DTOaModelo(GerenteDTO g) 
+        private Gerente DTOaModelo(GerenteDTO g) 
         {
-            GerenteD gerente = new GerenteD();
+            Gerente gerente = new Gerente();
             gerente.idGerente = g.idGerente;
             gerente.apellido = g.apellido;
             gerente.nombre = g.nombre;
@@ -123,12 +124,12 @@ namespace PNet.Gestores
             return gerente;
         }
 
-        private GerenteDTO ModeloaDTO(GerenteD g) 
+        private GerenteDTO ModeloaDTO(Gerente g) 
         {
             var _gerenteDTO = new GerenteDTO();
             _gerenteDTO.apellido = g.apellido;
             _gerenteDTO.nombre = g.nombre;
-            _gerenteDTO.Proyecto = g.Proyecto;
+           // _gerenteDTO.Proyecto = g.Proyecto;
             return _gerenteDTO;
         }
 

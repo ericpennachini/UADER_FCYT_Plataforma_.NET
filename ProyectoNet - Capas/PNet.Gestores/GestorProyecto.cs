@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PNet.Dominio;
+using PNet.Dominio.Modelo;
 using PNet.DTO;
 using PNet.Repositorio;
 using PNet.AccesoDatos;
@@ -13,15 +13,16 @@ namespace PNet.Gestores
 {
     public class GestorProyecto : IGestor<ProyectoDTO>, IDisposable
     {
-        RepositorioProyecto _repProyecto;
-        Modelo1Container _contexto;
-        ProyectoD _proyecto;
+         RepositorioProyecto _repProyecto;
+         Modelo1Container _contexto;
+         Proyecto _proyecto;
 
         public GestorProyecto()
         {
             try
             {
-                _contexto = new Modelo1Container();
+                var contexto = new Modelo1Container();
+                _contexto = contexto;
                 _repProyecto = new RepositorioProyecto(_contexto);
             }
             catch (Exception ex)
@@ -38,7 +39,7 @@ namespace PNet.Gestores
         {
             if (p.idProyecto > 0)
             {
-                ProyectoD _pMod = DTOaModelo(p);
+                Proyecto _pMod = DTOaModelo(p);
                 _proyecto = _repProyecto.GetPorId(p.idProyecto);
                 this.ActualizaProyecto(_pMod, _proyecto);
             }
@@ -58,11 +59,19 @@ namespace PNet.Gestores
 
         public IList<ProyectoDTO> Listar()
         {
-            IQueryable<ProyectoD> _pLista = _repProyecto.DevolverTodos();
             IList<ProyectoDTO> _pDTOLista = new List<ProyectoDTO>();
-            foreach (ProyectoD p in _pLista)
+            try
             {
-                _pDTOLista.Add(ModeloaDTO(p));
+                IQueryable<Proyecto> _pLista = _repProyecto.DevolverTodos();
+                    foreach (Proyecto p in _pLista)
+                    {
+                        _pDTOLista.Add(ModeloaDTO(p));
+                    } 
+            }
+            catch (Exception ex) 
+            {
+                Console.WriteLine(ex.StackTrace);
+                Console.ReadKey();
             }
             return _pDTOLista;
         }
@@ -77,6 +86,11 @@ namespace PNet.Gestores
             throw new NotImplementedException();
         }
 
+        public void AsignarGerente(GerenteDTO _gerente) 
+        {
+            _proyecto.Gerente = _gerente;
+        }
+
         //Implementación de la interface IDisposable
        
         public void Dispose()
@@ -86,7 +100,7 @@ namespace PNet.Gestores
 
         //Métodos propios
 
-        private void ActualizaProyecto(ProyectoD _pMod, ProyectoD _proyecto)
+        private void ActualizaProyecto(Proyecto _pMod, Proyecto _proyecto)
         {
             _proyecto.idProyecto = _pMod.idProyecto;
             _proyecto.nombre = _pMod.nombre;
@@ -96,27 +110,27 @@ namespace PNet.Gestores
             _proyecto.Caracterizacion = _pMod.Caracterizacion;
         }
 
-        private ProyectoD DTOaModelo(ProyectoDTO p)
+        private Proyecto DTOaModelo(ProyectoDTO p)
         {
-            ProyectoD proyecto = new ProyectoD();
+            Proyecto proyecto = new Proyecto();
             proyecto.idProyecto = p.idProyecto;
             proyecto.nombre = p.nombre;
             proyecto.descripcion = p.descripcion;
-            proyecto.Gerente = p.Gerente;
+           // proyecto.Gerente = p.Gerente;
             proyecto.fecha = p.fecha;
-            proyecto.Caracterizacion = p.Caracterizacion;
+           // proyecto.Caracterizacion = p.Caracterizacion;
             return proyecto;
         }
 
-        private ProyectoDTO ModeloaDTO(ProyectoD p)
+        private ProyectoDTO ModeloaDTO(Proyecto p)
         {
             var _pDTO = new ProyectoDTO();
             _pDTO.idProyecto = p.idProyecto;
             _pDTO.nombre = p.nombre;
             _pDTO.fecha = p.fecha;
             _pDTO.descripcion = p.descripcion;
-            _pDTO.Caracterizacion = p.Caracterizacion;
-            _pDTO.Gerente = p.Gerente;
+           // _pDTO.Caracterizacion = p.Caracterizacion;
+            //_pDTO.Gerente = p.Gerente;
             return _pDTO;
         }
 

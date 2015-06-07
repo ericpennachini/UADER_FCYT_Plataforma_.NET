@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Modelo1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="Modelo1Container" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="FactorSet" EntityType="Modelo1.Factor" />
+    <EntitySet Name="CaracteristicaSet" EntityType="Modelo1.Caracteristica" />
+    <AssociationSet Name="CaracteristicaFactor" Association="Modelo1.CaracteristicaFactor">
+      <End Role="Caracteristica" EntitySet="CaracteristicaSet" />
+      <End Role="Factor" EntitySet="FactorSet" />
+    </AssociationSet>
+    <EntitySet Name="ProyectoSet" EntityType="Modelo1.Proyecto" />
+    <EntitySet Name="GerenteSet" EntityType="Modelo1.Gerente" />
+    <AssociationSet Name="GerenteProyecto" Association="Modelo1.GerenteProyecto">
+      <End Role="Gerente" EntitySet="GerenteSet" />
+      <End Role="Proyecto" EntitySet="ProyectoSet" />
+    </AssociationSet>
+    <EntitySet Name="CaracterizacionSet" EntityType="Modelo1.Caracterizacion" />
+    <AssociationSet Name="FactorCaracterizacion" Association="Modelo1.FactorCaracterizacion">
+      <End Role="Factor" EntitySet="FactorSet" />
+      <End Role="Caracterizacion" EntitySet="CaracterizacionSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProyectoCaracterizacion" Association="Modelo1.ProyectoCaracterizacion">
+      <End Role="Proyecto" EntitySet="ProyectoSet" />
+      <End Role="Caracterizacion" EntitySet="CaracterizacionSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Factor">
+    <Key>
+      <PropertyRef Name="idFactor" />
+    </Key>
+    <Property Name="idFactor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreFactor" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Caracteristica" Relationship="Modelo1.CaracteristicaFactor" FromRole="Factor" ToRole="Caracteristica" />
+    <NavigationProperty Name="Caracterizacion" Relationship="Modelo1.FactorCaracterizacion" FromRole="Factor" ToRole="Caracterizacion" />
+  </EntityType>
+  <EntityType Name="Caracteristica">
+    <Key>
+      <PropertyRef Name="idCaracteristica" />
+    </Key>
+    <Property Name="idCaracteristica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="denominacion" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="valor" Type="Int32" Nullable="true" />
+    <NavigationProperty Name="Factor" Relationship="Modelo1.CaracteristicaFactor" FromRole="Caracteristica" ToRole="Factor" />
+  </EntityType>
+  <Association Name="CaracteristicaFactor">
+    <End Type="Modelo1.Caracteristica" Role="Caracteristica" Multiplicity="*" />
+    <End Type="Modelo1.Factor" Role="Factor" Multiplicity="1" />
+  </Association>
+  <EntityType Name="Proyecto">
+    <Key>
+      <PropertyRef Name="idProyecto" />
+    </Key>
+    <Property Name="idProyecto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="descripcion" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="true" Precision="3" />
+    <NavigationProperty Name="Gerente" Relationship="Modelo1.GerenteProyecto" FromRole="Proyecto" ToRole="Gerente" />
+    <NavigationProperty Name="Caracterizacion" Relationship="Modelo1.ProyectoCaracterizacion" FromRole="Proyecto" ToRole="Caracterizacion" />
+  </EntityType>
+  <EntityType Name="Gerente">
+    <Key>
+      <PropertyRef Name="idGerente" />
+    </Key>
+    <Property Name="idGerente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="apellido" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Proyecto" Relationship="Modelo1.GerenteProyecto" FromRole="Gerente" ToRole="Proyecto" />
+  </EntityType>
+  <Association Name="GerenteProyecto">
+    <End Type="Modelo1.Gerente" Role="Gerente" Multiplicity="1" />
+    <End Type="Modelo1.Proyecto" Role="Proyecto" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Caracterizacion">
+    <Key>
+      <PropertyRef Name="idCaracterizacion" />
+    </Key>
+    <Property Name="idCaracterizacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Valor" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="None" />
+    <Property Name="Ponderacion" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Factor" Relationship="Modelo1.FactorCaracterizacion" FromRole="Caracterizacion" ToRole="Factor" />
+    <NavigationProperty Name="Proyecto" Relationship="Modelo1.ProyectoCaracterizacion" FromRole="Caracterizacion" ToRole="Proyecto" />
+  </EntityType>
+  <Association Name="FactorCaracterizacion">
+    <End Type="Modelo1.Factor" Role="Factor" Multiplicity="1" />
+    <End Type="Modelo1.Caracterizacion" Role="Caracterizacion" Multiplicity="*" />
+  </Association>
+  <Association Name="ProyectoCaracterizacion">
+    <End Type="Modelo1.Proyecto" Role="Proyecto" Multiplicity="1" />
+    <End Type="Modelo1.Caracterizacion" Role="Caracterizacion" Multiplicity="*" />
+  </Association>
+</Schema>

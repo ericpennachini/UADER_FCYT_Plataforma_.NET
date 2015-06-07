@@ -57,6 +57,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PNet.AccesoDatos2\PNet.AccesoDatos.csproj">
+      <Project>{c8fe6b1f-a401-45db-90e1-6d255002a99e}</Project>
+      <Name>PNet.AccesoDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PNet.Dominio\PNet.Dominio.csproj">
       <Project>{9d53c642-bfd3-47bd-8624-e39c0bf2d3cb}</Project>
       <Name>PNet.Dominio</Name>

@@ -46,17 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modelo\CaracteristicaD.cs" />
-    <Compile Include="Modelo\CaracterizacionD.cs" />
-    <Compile Include="Modelo\FactorD.cs" />
-    <Compile Include="Modelo\GerenteD.cs" />
-    <Compile Include="Modelo\ProyectoD.cs" />
+    <Compile Include="Modelo\Caracteristica.cs" />
+    <Compile Include="Modelo\Caracterizacion.cs" />
+    <Compile Include="Modelo\Factor.cs" />
+    <Compile Include="Modelo\Gerente.cs" />
+    <Compile Include="Modelo\Proyecto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
