@@ -25,9 +25,9 @@ namespace PNet.Dominio.Modelo
     
         public virtual ICollection<Proyecto> Proyecto { get; set; }
 
-      public override string ToString()
-            {
-                return apellido+", "+nombre;
-            }
+        public override string ToString()
+        {
+            return apellido+", "+nombre;
+        }
     }
 }

@@ -44,6 +44,14 @@ namespace PruebaConsola
                 Console.WriteLine(g);
             }
             Console.ReadKey();
+            Console.WriteLine();
+
+            IList<ProyectoDTO> listaP = pGest.Listar();
+            foreach (ProyectoDTO p in listaP)
+            {
+                Console.WriteLine(p);
+            }
+            Console.ReadKey();
         }
     }
 }

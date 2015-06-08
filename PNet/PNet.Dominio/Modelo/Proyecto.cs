@@ -26,5 +26,13 @@ namespace PNet.Dominio.Modelo
     
         public virtual Gerente Gerente { get; set; }
         public virtual ICollection<Caracterizacion> Caracterizacion { get; set; }
+
+        public override string ToString()
+        {
+            string proyectoToString = "Nombre: '" + nombre
+                                        + "'\n Descripcion: '" + descripcion
+                                        + "'\n Fecha: " + fecha;
+            return proyectoToString;
+        }
     }
 }
