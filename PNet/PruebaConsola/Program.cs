@@ -31,20 +31,28 @@ namespace PruebaConsola
             GestorProyecto pGest = new GestorProyecto();
 
             //HABILITAR PARA DAR DE ALTA UN GERENTE
-           /* GerenteDTO _gDTO = new GerenteDTO();
+            GerenteDTO _gDTO = new GerenteDTO();
             _gDTO.apellido = "Sigura";
             _gDTO.nombre = "Aldo";
-            gGest.Guardar(_gDTO);*/
-
-           
+            gGest.Guardar(_gDTO);
+            
 
             IList<GerenteDTO> lista = gGest.Listar();
             foreach (GerenteDTO g in lista)
             {
                 Console.WriteLine(g);
-            }
+            } 
             Console.ReadKey();
             Console.WriteLine();
+
+
+            //HABILITAR PARA DAR DE ALTA UN PROYECTO
+            ProyectoDTO _pDTO = new ProyectoDTO();
+            _pDTO.nombre = "PNetV2";
+            _pDTO.descripcion = "Proyecto para .NET version 2, con ABM";
+            _pDTO.fecha = new DateTime(2015, 6, 10);
+            _pDTO.Gerente = gGest.DevolverGerente(gGest.Obtener(1));
+            pGest.Guardar(_pDTO);
 
             IList<ProyectoDTO> listaP = pGest.Listar();
             foreach (ProyectoDTO p in listaP)

@@ -88,7 +88,8 @@ namespace PNet.Gestores
 
         public void AsignarGerente(GerenteDTO _gerente) 
         {
-            _proyecto.Gerente = _gerente;
+            //
+
         }
 
         //Implementación de la interface IDisposable

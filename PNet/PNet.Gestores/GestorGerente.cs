@@ -71,7 +71,7 @@ namespace PNet.Gestores
             GerenteDTO _gDTO=new GerenteDTO();
             try
             {
-                _gDTO=ModeloaDTO(_repGerente.GetPorId(id));
+                _gDTO = ModeloaDTO(_repGerente.GetPorId(id));
             }
             catch(Exception ex)
             {
@@ -98,6 +98,11 @@ namespace PNet.Gestores
             }
 
             return _gDTOLista;
+        }
+
+        public Gerente DevolverGerente(GerenteDTO g)
+        {
+            return DTOaModelo(g);
         }
 
         //Implementación de la interface IDispose
@@ -127,6 +132,7 @@ namespace PNet.Gestores
         private GerenteDTO ModeloaDTO(Gerente g) 
         {
             var _gerenteDTO = new GerenteDTO();
+            _gerenteDTO.idGerente = g.idGerente;
             _gerenteDTO.apellido = g.apellido;
             _gerenteDTO.nombre = g.nombre;
            // _gerenteDTO.Proyecto = g.Proyecto;
