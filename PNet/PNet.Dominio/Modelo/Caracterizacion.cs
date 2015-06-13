@@ -17,8 +17,10 @@ namespace PNet.Dominio.Modelo
         public int idCaracterizacion { get; set; }
         public short Valor { get; set; }
         public short Ponderacion { get; set; }
+        public int Proyecto_idProyecto { get; set; }
+        public int Factor_idFactor { get; set; }
     
-        public virtual Factor Factor { get; set; }
         public virtual Proyecto Proyecto { get; set; }
+        public virtual Factor Factor { get; set; }
     }
 }

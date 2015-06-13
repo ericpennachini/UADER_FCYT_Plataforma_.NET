@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/27/2015 17:41:37
--- Generated from EDMX file: d:\documents\visual studio 2013\Projects\ProyectoNet\AccesoDatos\Modelo1.edmx
+-- Date Created: 06/13/2015 13:12:50
+-- Generated from EDMX file: D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\PNet\AccesoDatos\Modelo1.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -93,8 +93,8 @@ CREATE TABLE [dbo].[CaracterizacionSet] (
     [idCaracterizacion] int IDENTITY(1,1) NOT NULL,
     [Valor] smallint  NOT NULL,
     [Ponderacion] smallint  NOT NULL,
-    [Factor_idFactor] int  NOT NULL,
-    [Proyecto_idProyecto] int  NOT NULL
+    [Proyecto_idProyecto] int  NOT NULL,
+    [Factor_idFactor] int  NOT NULL
 );
 GO
 
@@ -136,64 +136,64 @@ GO
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
 
--- Creating foreign key on [Factor_idFactor] in table 'CaracteristicaSet'
-ALTER TABLE [dbo].[CaracteristicaSet]
-ADD CONSTRAINT [FK_CaracteristicaFactor]
-    FOREIGN KEY ([Factor_idFactor])
-    REFERENCES [dbo].[FactorSet]
-        ([idFactor])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_CaracteristicaFactor'
-CREATE INDEX [IX_FK_CaracteristicaFactor]
-ON [dbo].[CaracteristicaSet]
-    ([Factor_idFactor]);
-GO
-
 -- Creating foreign key on [Gerente_idGerente] in table 'ProyectoSet'
 ALTER TABLE [dbo].[ProyectoSet]
-ADD CONSTRAINT [FK_GerenteProyecto]
+ADD CONSTRAINT [FK_ProyectoGerente]
     FOREIGN KEY ([Gerente_idGerente])
     REFERENCES [dbo].[GerenteSet]
         ([idGerente])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_GerenteProyecto'
-CREATE INDEX [IX_FK_GerenteProyecto]
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProyectoGerente'
+CREATE INDEX [IX_FK_ProyectoGerente]
 ON [dbo].[ProyectoSet]
     ([Gerente_idGerente]);
 GO
 
--- Creating foreign key on [Factor_idFactor] in table 'CaracterizacionSet'
-ALTER TABLE [dbo].[CaracterizacionSet]
-ADD CONSTRAINT [FK_FactorCaracterizacion]
-    FOREIGN KEY ([Factor_idFactor])
-    REFERENCES [dbo].[FactorSet]
-        ([idFactor])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_FactorCaracterizacion'
-CREATE INDEX [IX_FK_FactorCaracterizacion]
-ON [dbo].[CaracterizacionSet]
-    ([Factor_idFactor]);
-GO
-
 -- Creating foreign key on [Proyecto_idProyecto] in table 'CaracterizacionSet'
 ALTER TABLE [dbo].[CaracterizacionSet]
-ADD CONSTRAINT [FK_ProyectoCaracterizacion]
+ADD CONSTRAINT [FK_CaracterizacionProyecto]
     FOREIGN KEY ([Proyecto_idProyecto])
     REFERENCES [dbo].[ProyectoSet]
         ([idProyecto])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_ProyectoCaracterizacion'
-CREATE INDEX [IX_FK_ProyectoCaracterizacion]
+-- Creating non-clustered index for FOREIGN KEY 'FK_CaracterizacionProyecto'
+CREATE INDEX [IX_FK_CaracterizacionProyecto]
 ON [dbo].[CaracterizacionSet]
     ([Proyecto_idProyecto]);
+GO
+
+-- Creating foreign key on [Factor_idFactor] in table 'CaracterizacionSet'
+ALTER TABLE [dbo].[CaracterizacionSet]
+ADD CONSTRAINT [FK_CaracterizacionFactor]
+    FOREIGN KEY ([Factor_idFactor])
+    REFERENCES [dbo].[FactorSet]
+        ([idFactor])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CaracterizacionFactor'
+CREATE INDEX [IX_FK_CaracterizacionFactor]
+ON [dbo].[CaracterizacionSet]
+    ([Factor_idFactor]);
+GO
+
+-- Creating foreign key on [Factor_idFactor] in table 'CaracteristicaSet'
+ALTER TABLE [dbo].[CaracteristicaSet]
+ADD CONSTRAINT [FK_FactorCaracteristica]
+    FOREIGN KEY ([Factor_idFactor])
+    REFERENCES [dbo].[FactorSet]
+        ([idFactor])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_FactorCaracteristica'
+CREATE INDEX [IX_FK_FactorCaracteristica]
+ON [dbo].[CaracteristicaSet]
+    ([Factor_idFactor]);
 GO
 
 -- --------------------------------------------------

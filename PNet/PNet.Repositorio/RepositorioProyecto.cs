@@ -12,14 +12,17 @@ namespace PNet.Repositorio
     {
         public RepositorioProyecto(DbContext contexto) 
             : base(contexto)
-        {
-
-        }
+        { }
 
         public Proyecto GetUltimoProyecto()
         {
             var _proyecto = from p in _contexto.Set<Proyecto>() orderby p.idProyecto select p;
-            return _proyecto.Last<Proyecto>();
+            return _proyecto.ToArray<Proyecto>().Last<Proyecto>();
+        }
+
+        public override void Eliminar(Proyecto entidad)
+        {
+            
         }
     }
 }

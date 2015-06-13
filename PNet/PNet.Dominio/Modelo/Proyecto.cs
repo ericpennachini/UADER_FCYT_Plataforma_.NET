@@ -11,19 +11,20 @@ namespace PNet.Dominio.Modelo
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Proyecto
     {
         public Proyecto()
         {
             this.Caracterizacion = new HashSet<Caracterizacion>();
         }
-    
+
         public int idProyecto { get; set; }
         public string nombre { get; set; }
         public string descripcion { get; set; }
         public Nullable<System.DateTime> fecha { get; set; }
-    
+        public int Gerente_idGerente { get; set; }
+
         public virtual Gerente Gerente { get; set; }
         public virtual ICollection<Caracterizacion> Caracterizacion { get; set; }
 

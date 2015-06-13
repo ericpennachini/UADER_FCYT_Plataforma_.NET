@@ -9,9 +9,8 @@ namespace PNet.Repositorio
     interface IRepositorio<T>
     {
         void Guardar(T entidad, int id);
-        void Actualizar(T entidad);
+        void Eliminar(T entidad);
         T GetPorId(int id);
-        T GetUltimo();
         IQueryable<T> DevolverTodos();
     }
 }

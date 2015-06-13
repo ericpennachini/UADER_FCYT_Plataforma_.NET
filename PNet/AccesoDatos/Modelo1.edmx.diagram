@@ -7,13 +7,13 @@
       <Diagram DiagramId="47ca899d1aa640edb7d6bda16e0c5392" Name="Diagram1" ShowGrid="false" ZoomLevel="100" >
         <EntityTypeShape EntityType="Modelo1.Factor" Width="1.5" PointX="5.875" PointY="1.125" />
         <EntityTypeShape EntityType="Modelo1.Caracteristica" Width="1.5" PointX="5.875" PointY="4.375" />
-        <AssociationConnector Association="Modelo1.CaracteristicaFactor" />
         <EntityTypeShape EntityType="Modelo1.Proyecto" Width="1.5" PointX="12.125" PointY="1.125" />
         <EntityTypeShape EntityType="Modelo1.Gerente" Width="1.5" PointX="12.125" PointY="4.375" />
-        <AssociationConnector Association="Modelo1.GerenteProyecto" />
         <EntityTypeShape EntityType="Modelo1.Caracterizacion" Width="1.5" PointX="9.125" PointY="1.125" IsExpanded="true" />
-        <AssociationConnector Association="Modelo1.FactorCaracterizacion" />
-        <AssociationConnector Association="Modelo1.ProyectoCaracterizacion" />
+        <AssociationConnector Association="Modelo1.ProyectoGerente" />
+        <AssociationConnector Association="Modelo1.CaracterizacionProyecto" />
+        <AssociationConnector Association="Modelo1.CaracterizacionFactor" />
+        <AssociationConnector Association="Modelo1.FactorCaracteristica" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

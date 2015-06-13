@@ -42,7 +42,7 @@ namespace PNet.Gestores
                 {
                     Gerente _gMod = DTOaModelo(entidad);
                     _gerente = _repGerente.GetPorId(entidad.idGerente);
-                    this.ActualizarEvento(_gMod, _gerente);
+                    this.ActualizarGerente(_gMod, _gerente);
                 }
                 else 
                 {
@@ -114,9 +114,12 @@ namespace PNet.Gestores
     
         //Métodos propios
 
-        private void ActualizarEvento(Gerente _gMod, Gerente _gerente)
+        private void ActualizarGerente(Gerente _gMod, Gerente _gerente)
         {
-            throw new NotImplementedException();
+            _gerente.idGerente = _gMod.idGerente;
+            _gerente.nombre = _gMod.nombre;
+            _gerente.apellido = _gMod.apellido;
+            _gerente.Proyecto = _gMod.Proyecto;
         }
 
         private Gerente DTOaModelo(GerenteDTO g) 
@@ -125,7 +128,6 @@ namespace PNet.Gestores
             gerente.idGerente = g.idGerente;
             gerente.apellido = g.apellido;
             gerente.nombre = g.nombre;
-            gerente.Proyecto = g.Proyecto;
             return gerente;
         }
 
@@ -135,9 +137,19 @@ namespace PNet.Gestores
             _gerenteDTO.idGerente = g.idGerente;
             _gerenteDTO.apellido = g.apellido;
             _gerenteDTO.nombre = g.nombre;
-           // _gerenteDTO.Proyecto = g.Proyecto;
             return _gerenteDTO;
         }
 
+
+        public void Modificar(GerenteDTO entidad)
+        {
+            Guardar(entidad);
+        }
+
+
+        public void Eliminar(GerenteDTO entidad)
+        {
+            _repGerente.Eliminar(DTOaModelo(entidad));
+        }
     }
 }

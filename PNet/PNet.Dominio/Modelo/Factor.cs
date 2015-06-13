@@ -16,14 +16,14 @@ namespace PNet.Dominio.Modelo
     {
         public Factor()
         {
-            this.Caracteristica = new HashSet<Caracteristica>();
             this.Caracterizacion = new HashSet<Caracterizacion>();
+            this.Caracteristica = new HashSet<Caracteristica>();
         }
     
         public int idFactor { get; set; }
         public string nombreFactor { get; set; }
     
-        public virtual ICollection<Caracteristica> Caracteristica { get; set; }
         public virtual ICollection<Caracterizacion> Caracterizacion { get; set; }
+        public virtual ICollection<Caracteristica> Caracteristica { get; set; }
     }
 }

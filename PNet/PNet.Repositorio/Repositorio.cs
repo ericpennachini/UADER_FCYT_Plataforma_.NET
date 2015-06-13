@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity.Design;
 using PNet.Dominio.Modelo;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
 
 namespace PNet.Repositorio
 {
@@ -29,11 +31,6 @@ namespace PNet.Repositorio
             _contexto.SaveChanges();
         }
 
-        public void Actualizar(T entidad)
-        {
-            dbSet.Attach(entidad);
-        }
-
         public T GetPorId(int id)
         {
             return dbSet.Find(id);
@@ -44,9 +41,9 @@ namespace PNet.Repositorio
             return dbSet;
         }
 
-        public T GetUltimo()
-        {
-            return dbSet.Last();
+        public virtual void Eliminar(T entidad)
+        {   
+            //ahora permite sobreescritura (virtual)
         }
     }
 }

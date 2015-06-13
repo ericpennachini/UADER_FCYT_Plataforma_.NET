@@ -27,7 +27,7 @@ namespace PNet.Dominio.Modelo
 
         public override string ToString()
         {
-            return apellido+", "+nombre;
+            return apellido + ", " + nombre;
         }
     }
 }

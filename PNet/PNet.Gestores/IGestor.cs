@@ -13,5 +13,7 @@ namespace PNet.Gestores
         void Deshabilitar();
         T Obtener(int id);
         IList<T> Listar();
+        void Modificar(T entidad);
+        void Eliminar(T entidad);
     }
 }

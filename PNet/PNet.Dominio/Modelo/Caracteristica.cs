@@ -17,6 +17,7 @@ namespace PNet.Dominio.Modelo
         public int idCaracteristica { get; set; }
         public string denominacion { get; set; }
         public Nullable<int> valor { get; set; }
+        public int Factor_idFactor { get; set; }
     
         public virtual Factor Factor { get; set; }
     }
