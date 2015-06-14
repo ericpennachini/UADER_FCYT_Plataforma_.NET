@@ -139,10 +139,10 @@ namespace PNet.Gestores
 
         public void Eliminar(ProyectoDTO entidad)
         {
-            
-           // _contexto.ProyectoSet.Remove(DTOaModelo(entidad));
-
-            //_repProyecto.Eliminar(DTOaModelo(entidad));
+            //primero recupero la entidad a eliminar por el id y se guarda en entidadBorrar
+            //luego se lo paso al repositorio para que haga tranqui el Remove y luego _contexto.SaveChanges()
+            var entidadBorrar = _repProyecto.GetPorId(entidad.idProyecto);
+            _repProyecto.Eliminar(entidadBorrar);
         }
 
         #endregion

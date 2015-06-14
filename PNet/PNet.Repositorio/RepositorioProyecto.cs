@@ -20,9 +20,9 @@ namespace PNet.Repositorio
             return _proyecto.ToArray<Proyecto>().Last<Proyecto>();
         }
 
-        public override void Eliminar(Proyecto entidad)
-        {
-            
-        }
+        //public override void Eliminar(Proyecto entidad)
+        //{
+        // No hace falta esto, el repositorio se encarga de hacerlo
+        //}
     }
 }

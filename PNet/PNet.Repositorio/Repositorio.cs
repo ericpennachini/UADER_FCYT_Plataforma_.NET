@@ -44,6 +44,8 @@ namespace PNet.Repositorio
         public virtual void Eliminar(T entidad)
         {   
             //ahora permite sobreescritura (virtual)
+            dbSet.Remove(entidad);
+            _contexto.SaveChanges();
         }
     }
 }
