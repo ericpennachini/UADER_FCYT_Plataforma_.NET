@@ -16,3 +16,21 @@ D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Gestores
 D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Gestores\obj\Debug\PNet.Gestores.csprojResolveAssemblyReference.cache
 D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Gestores\obj\Debug\PNet.Gestores.dll
 D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Gestores\obj\Debug\PNet.Gestores.pdb
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.Gestores\bin\Debug\PNet.Gestores.dll.config
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.Gestores\bin\Debug\PNet.Gestores.dll
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.Gestores\bin\Debug\PNet.Gestores.pdb
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.Gestores\bin\Debug\AccesoDatos.dll
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.Gestores\bin\Debug\EntityFramework.dll
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.Gestores\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.Gestores\bin\Debug\PNet.Dominio.dll
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.Gestores\bin\Debug\PNet.DTO.dll
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.Gestores\bin\Debug\PNet.Repositorio.dll
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.Gestores\bin\Debug\AccesoDatos.pdb
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.Gestores\bin\Debug\PNet.Dominio.pdb
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.Gestores\bin\Debug\PNet.DTO.pdb
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.Gestores\bin\Debug\PNet.Repositorio.pdb
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.Gestores\bin\Debug\EntityFramework.xml
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.Gestores\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.Gestores\obj\Debug\PNet.Gestores.csprojResolveAssemblyReference.cache
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.Gestores\obj\Debug\PNet.Gestores.dll
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.Gestores\obj\Debug\PNet.Gestores.pdb

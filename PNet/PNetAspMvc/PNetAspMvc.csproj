@@ -187,6 +187,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\GerenteController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -310,10 +311,13 @@
     <Content Include="Views\Proyecto\Crear.cshtml" />
     <Content Include="Views\Proyecto\Eliminar.cshtml" />
     <Content Include="Views\Proyecto\Editar.cshtml" />
+    <Content Include="Views\Gerente\Crear.cshtml" />
+    <Content Include="Views\Gerente\Editar.cshtml" />
+    <Content Include="Views\Gerente\Eliminar.cshtml" />
+    <Content Include="Views\Gerente\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Gerente\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

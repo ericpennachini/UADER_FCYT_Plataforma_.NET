@@ -10,3 +10,15 @@ D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.DTO\bin\
 D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.DTO\obj\Debug\PNet.DTO.csprojResolveAssemblyReference.cache
 D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.DTO\obj\Debug\PNet.DTO.dll
 D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.DTO\obj\Debug\PNet.DTO.pdb
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.DTO\bin\Debug\PNet.DTO.dll.config
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.DTO\bin\Debug\PNet.DTO.dll
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.DTO\bin\Debug\PNet.DTO.pdb
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.DTO\bin\Debug\EntityFramework.dll
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.DTO\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.DTO\bin\Debug\PNet.Dominio.dll
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.DTO\bin\Debug\PNet.Dominio.pdb
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.DTO\bin\Debug\EntityFramework.xml
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.DTO\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.DTO\obj\Debug\PNet.DTO.csprojResolveAssemblyReference.cache
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.DTO\obj\Debug\PNet.DTO.dll
+C:\Users\Push\Desktop\UADER_FCYT_Plataforma_.NET\PNet\PNet.DTO\obj\Debug\PNet.DTO.pdb
