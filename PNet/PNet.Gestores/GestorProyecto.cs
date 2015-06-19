@@ -36,29 +36,44 @@ namespace PNet.Gestores
 
         public void Guardar(ProyectoDTO p)
         {
-            if (p.idProyecto > 0)
+            try
             {
-                Proyecto _pMod = DTOaModelo(p);
-                _proyecto = _repProyecto.GetPorId(p.idProyecto);
-                this.ActualizaProyecto(_pMod, _proyecto);
+                if (p.idProyecto > 0)
+                {
+                    Proyecto _pMod = DTOaModelo(p);
+                    _proyecto = _repProyecto.GetPorId(p.idProyecto);
+                    this.ActualizaProyecto(_pMod, _proyecto);
+                }
+                else
+                {
+                    _proyecto = DTOaModelo(p);
+                }
+                _repProyecto.Guardar(_proyecto, _proyecto.idProyecto);
+                _contexto.SaveChanges();
             }
-            else
+            catch (Exception)
             {
-                _proyecto = DTOaModelo(p);
+                throw;
             }
-            _repProyecto.Guardar(_proyecto, _proyecto.idProyecto);
-            _contexto.SaveChanges();
         }
 
         public ProyectoDTO Obtener(int id)
         {
-            var _p = _repProyecto.GetPorId(id);
-            return ModeloaDTO(_p);
+            try
+            {
+                var _p = _repProyecto.GetPorId(id);
+                return ModeloaDTO(_p);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public IList<ProyectoDTO> Listar()
         {
             IList<ProyectoDTO> _pDTOLista = new List<ProyectoDTO>();
+
             try
             {
                 IQueryable<Proyecto> _pLista = _repProyecto.DevolverTodos();
@@ -66,11 +81,11 @@ namespace PNet.Gestores
                 {
                     _pDTOLista.Add(ModeloaDTO(p));
                 }
+                
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.StackTrace);
-                Console.ReadKey();
+                throw;
             }
             return _pDTOLista;
         }
@@ -141,8 +156,15 @@ namespace PNet.Gestores
         {
             //primero recupero la entidad a eliminar por el id y se guarda en entidadBorrar
             //luego se lo paso al repositorio para que haga tranqui el Remove y luego _contexto.SaveChanges()
-            var entidadBorrar = _repProyecto.GetPorId(entidad.idProyecto);
-            _repProyecto.Eliminar(entidadBorrar);
+            try
+            {
+                var entidadBorrar = _repProyecto.GetPorId(entidad.idProyecto);
+                _repProyecto.Eliminar(entidadBorrar);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         #endregion

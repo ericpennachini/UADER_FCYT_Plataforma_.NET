@@ -25,3 +25,13 @@ C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Dominio\bin\Debug\EntityFramewo
 C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Dominio\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Dominio\obj\Debug\PNet.Dominio.dll
 C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Dominio\obj\Debug\PNet.Dominio.pdb
+C:\Users\EricDaniel\Documents\GitHub\UADER_FCYT_Plataforma_.NET\PNet\PNet.Dominio\bin\Debug\PNet.Dominio.dll.config
+C:\Users\EricDaniel\Documents\GitHub\UADER_FCYT_Plataforma_.NET\PNet\PNet.Dominio\bin\Debug\PNet.Dominio.dll
+C:\Users\EricDaniel\Documents\GitHub\UADER_FCYT_Plataforma_.NET\PNet\PNet.Dominio\bin\Debug\PNet.Dominio.pdb
+C:\Users\EricDaniel\Documents\GitHub\UADER_FCYT_Plataforma_.NET\PNet\PNet.Dominio\bin\Debug\EntityFramework.dll
+C:\Users\EricDaniel\Documents\GitHub\UADER_FCYT_Plataforma_.NET\PNet\PNet.Dominio\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\EricDaniel\Documents\GitHub\UADER_FCYT_Plataforma_.NET\PNet\PNet.Dominio\bin\Debug\EntityFramework.xml
+C:\Users\EricDaniel\Documents\GitHub\UADER_FCYT_Plataforma_.NET\PNet\PNet.Dominio\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\EricDaniel\Documents\GitHub\UADER_FCYT_Plataforma_.NET\PNet\PNet.Dominio\obj\Debug\PNet.Dominio.csprojResolveAssemblyReference.cache
+C:\Users\EricDaniel\Documents\GitHub\UADER_FCYT_Plataforma_.NET\PNet\PNet.Dominio\obj\Debug\PNet.Dominio.dll
+C:\Users\EricDaniel\Documents\GitHub\UADER_FCYT_Plataforma_.NET\PNet\PNet.Dominio\obj\Debug\PNet.Dominio.pdb

@@ -16,8 +16,15 @@ namespace PNet.Repositorio
 
         public Proyecto GetUltimoProyecto()
         {
-            var _proyecto = from p in _contexto.Set<Proyecto>() orderby p.idProyecto select p;
-            return _proyecto.ToArray<Proyecto>().Last<Proyecto>();
+            try
+            {
+                var _proyecto = from p in _contexto.Set<Proyecto>() orderby p.idProyecto select p;
+                return _proyecto.ToArray<Proyecto>().Last<Proyecto>();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         //public override void Eliminar(Proyecto entidad)

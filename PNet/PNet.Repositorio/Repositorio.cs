@@ -23,7 +23,7 @@ namespace PNet.Repositorio
                 _contexto = contexto;
                 dbSet = contexto.Set<T>();
             }
-            catch (Exception ex) 
+            catch (Exception) 
             {
                 throw;
             }
@@ -31,28 +31,56 @@ namespace PNet.Repositorio
 
         public void Guardar(T entidad, int id)
         {
-            if (id == 0)
+            try
             {
-                dbSet.Add(entidad);
+                if (id == 0)
+                {
+                    dbSet.Add(entidad);
+                }
+                _contexto.SaveChanges();
             }
-            _contexto.SaveChanges();
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public T GetPorId(int id)
         {
-            return dbSet.Find(id);
+            try
+            {
+                return dbSet.Find(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public IQueryable<T> DevolverTodos()
         {
-            return dbSet;
+            try
+            {
+                return dbSet;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public virtual void Eliminar(T entidad)
         {   
             //ahora permite sobreescritura (virtual)
-            dbSet.Remove(entidad);
-            _contexto.SaveChanges();
+            try
+            {
+                dbSet.Remove(entidad);
+                _contexto.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

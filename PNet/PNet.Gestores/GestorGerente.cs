@@ -50,9 +50,9 @@ namespace PNet.Gestores
                 }
                 _repGerente.Guardar(_gerente, _gerente.idGerente);
             }
-            catch (Exception ex) 
+            catch (Exception) 
             {
-                Console.WriteLine(ex.InnerException);
+                throw;
             }
         }
 
@@ -92,9 +92,9 @@ namespace PNet.Gestores
                     _gDTOLista.Add(ModeloaDTO(g));
                 }
             }
-            catch (Exception ex) 
+            catch (Exception) 
             {
-                Console.WriteLine(ex.InnerException);
+                throw;
             }
 
             return _gDTOLista;
@@ -149,8 +149,15 @@ namespace PNet.Gestores
 
         public void Eliminar(GerenteDTO entidad)
         {
-            var entidadBorrar = _repGerente.GetPorId(entidad.idGerente);
-            _repGerente.Eliminar(entidadBorrar);
+            try
+            {
+                var entidadBorrar = _repGerente.GetPorId(entidad.idGerente);
+                _repGerente.Eliminar(entidadBorrar);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

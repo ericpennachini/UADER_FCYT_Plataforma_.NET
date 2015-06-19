@@ -202,7 +202,9 @@
         <Association Name="ProyectoGerente">
           <End Type="Modelo1.Proyecto" Role="Proyecto" Multiplicity="*" >
           </End>
-          <End Type="Modelo1.Gerente" Role="Gerente" Multiplicity="1" />
+          <End Type="Modelo1.Gerente" Role="Gerente" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <ReferentialConstraint>
             <Principal Role="Gerente">
               <PropertyRef Name="idGerente" />

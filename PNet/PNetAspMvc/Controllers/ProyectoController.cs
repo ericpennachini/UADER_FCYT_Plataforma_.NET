@@ -118,7 +118,6 @@ namespace PNetAspMvc.Controllers
         #endregion
 
         #region - Crear
-        
         public ActionResult Crear()
         {
             ProyectoModels modelo = new ProyectoModels()
@@ -132,7 +131,6 @@ namespace PNetAspMvc.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Crear([Bind(Include = "idProyecto,nombre,descripcion,fecha,Gerente_idGerente")] ProyectoDTO proyecto)
         {
-            //ModelState.AddModelError("Nombre", "Hay un problema");
             if (ModelState.IsValid)
             {
                 _pGest.Guardar(proyecto);
@@ -140,48 +138,9 @@ namespace PNetAspMvc.Controllers
             }
             return View(proyecto);
         }
-
-        //public ActionResult Agregar(FormCollection coleccion)
-        //{
-        //    ProyectoDTO _pDTO = new ProyectoDTO();
-        //    _pDTO.nombre = coleccion["nombre"];
-        //    _pDTO.descripcion = coleccion["descripcion"];
-        //    _pDTO.fecha = Convert.ToDateTime(coleccion["fecha"]);
-        //    _pDTO.Gerente_idGerente = 1;
-        //    _pGest.Guardar(_pDTO);
-            
-        //    return RedirectToAction("Index");
-        //}
         #endregion
 
-        #region - Editar
-        ////Lleva a la vista para editar un elemento
-        //public ActionResult Editar(int id)
-        //{
-        //    if (id == 0)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    ProyectoDTO proyecto = _pGest.Obtener(id);
-        //    if (proyecto == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(proyecto);
-        //}
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Editar([Bind(Include = "idProyecto,nombre,descripcion,fecha,Gerente_idGerente")] ProyectoDTO proyecto)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _pGest.Guardar(proyecto);
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(proyecto);
-        //}
-
+        #region - Detalles
         public ActionResult Detalles(int id)
         {
             ProyectoDTO _pDTO = new ProyectoDTO();
@@ -206,9 +165,9 @@ namespace PNetAspMvc.Controllers
                 };
                 return View(modelo);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
+                
             }
             return RedirectToAction("Index");
         }
