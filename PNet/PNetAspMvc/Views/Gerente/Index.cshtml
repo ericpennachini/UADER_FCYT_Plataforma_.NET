@@ -1,0 +1,33 @@
+﻿@model IEnumerable<PNet.Dominio.Modelo.Gerente>
+
+@{
+    ViewBag.Title = "Editar gerente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+      
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.idGerente)</td>
+            <td>@Html.DisplayFor(modelItem => item.nombre)</td>
+            <td>@Html.DisplayFor(modelItem => item.apellido)</td>
+           
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.idGerente }) |
+                @Html.ActionLink("Eliminar", "Eliminar", new { id = item.idGerente })
+            </td>
+        </tr>
+    }
+</table>
+
+<p>
+    @Html.ActionLink("Nuevo", "Crear", "Gerente")
+</p>

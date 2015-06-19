@@ -1,0 +1,36 @@
+﻿@model PNet.Dominio.Modelo.Gerente
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar</h2>
+<h3>
+    ¿Está seguro de que desea eliminar este gerente?
+</h3>
+<h4>
+    Tenga en cuenta que también se eliminarán los proyectos asociados a este gerente
+</h4>
+
+<div>
+    <h4>Gerente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.nombre)</dt>
+        <dt>@Html.DisplayFor(model => model.nombre)</dt>
+
+        <dt>@Html.DisplayNameFor(model => model.apellido)</dt>
+        <dt>@Html.DisplayFor(model => model.apellido)</dt>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Volver a la lista", "Index")
+        </div>
+    }
+</div>

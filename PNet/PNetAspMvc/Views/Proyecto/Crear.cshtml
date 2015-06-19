@@ -1,0 +1,63 @@
+﻿@model PNetAspMvc.Models.ProyectoModels
+
+@{
+    ViewBag.Title = "Crear";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Nuevo proyecto</h2>
+
+@*<form name="formAltaProyecto" action="/Proyecto/Agregar" method="post">*@
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="form-horizontal">
+        <h5>Ingrese los datos para un nuevo proyecto</h5>
+        <hr />
+        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.nombre, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nombre)
+                @Html.ValidationMessageFor(model => model.nombre)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.descripcion, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.descripcion)
+                @Html.ValidationMessageFor(model => model.descripcion)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fecha, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fecha)
+                @Html.ValidationMessageFor(model => model.fecha)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Gerente_idGerente, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+               
+                @Html.DropDownListFor(model => model.Gerente_idGerente, Model.DropGerentes) 
+                @Html.ValidationMessageFor(model => model.Gerente_idGerente)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Agregar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+}
+@*</form>*@

@@ -1,0 +1,37 @@
+﻿@model PNetAspMvc.Models.ProyectoModels
+
+@{
+    ViewBag.Title = "Detalles de proyecto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Proyecto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.nombre)</dt>
+        <dt>@Html.DisplayFor(model => model.nombre)</dt>
+
+        <dt>@Html.DisplayNameFor(model => model.descripcion)</dt>
+        <dt>@Html.DisplayFor(model => model.descripcion)</dt>
+
+        <dt>@Html.DisplayNameFor(model => model.fecha)</dt>
+        <dt>@Html.DisplayFor(model => model.fecha)</dt>
+
+        <dt>@Html.DisplayNameFor(model => model.nombreGerente)</dt>
+        <dt>@Html.DisplayFor(model => model.nombreGerente)</dt>
+        
+        
+    </dl>
+
+    @*@using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()*@
+
+        <div class="form-actions no-color">
+            @Html.ActionLink("Volver a la lista", "Index")
+        </div>
+    @*}*@
+</div>

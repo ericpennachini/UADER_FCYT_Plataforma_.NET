@@ -1,0 +1,49 @@
+C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.Repositorio\obj\Debug\PNet.Repositorio.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\PNet.Repositorio.dll.config
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\PNet.Repositorio.dll
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\PNet.Repositorio.pdb
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\EntityFramework.dll
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\EntityFramework.SqlServer.dll
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\Microsoft.Data.Entity.Design.Extensibility.dll
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\PNet.AccesoDatos.dll
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\PNet.Dominio.dll
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\PNet.AccesoDatos.pdb
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\PNet.Dominio.pdb
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\EntityFramework.xml
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\EntityFramework.SqlServer.xml
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\de\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\es\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\fr\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\it\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\ja\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\ko\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\ru\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\zh-Hans\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\bin\Debug\zh-Hant\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\obj\Debug\PNet.Repositorio.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\obj\Debug\PNet.Repositorio.dll
+D:\Documents\GitHub\UADER_FCYT_Plataforma_.NET\ProyectoNet - Capas\PNet.Repositorio\obj\Debug\PNet.Repositorio.pdb
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\PNet.Repositorio.dll.config
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\PNet.Repositorio.dll
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\PNet.Repositorio.pdb
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\AccesoDatos.dll
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\EntityFramework.dll
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\Microsoft.Data.Entity.Design.Extensibility.dll
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\PNet.Dominio.dll
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\AccesoDatos.pdb
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\PNet.Dominio.pdb
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\EntityFramework.xml
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\de\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\es\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\fr\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\it\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\ja\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\ko\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\ru\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\zh-Hans\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\bin\Debug\zh-Hant\Microsoft.Data.Entity.Design.Extensibility.resources.dll
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\obj\Debug\PNet.Repositorio.csprojResolveAssemblyReference.cache
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\obj\Debug\PNet.Repositorio.dll
+C:\Users\EricDaniel\Desktop\PNet[SEGURIDAD]\PNet.Repositorio\obj\Debug\PNet.Repositorio.pdb
