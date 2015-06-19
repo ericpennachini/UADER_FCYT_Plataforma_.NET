@@ -1,1 +1,0 @@
-d:\documents\visual studio 2013\Projects\ProyectoNet\AccesoDatos\bin\Debug\AccesoDatos.exe.config

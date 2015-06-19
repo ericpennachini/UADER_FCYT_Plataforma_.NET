@@ -1,6 +1,0 @@
-﻿07/05/2015 17:34
-En el MODELO, la relación entre Factor y Proyecto es otra entidad que tiene atributos (Valor y Ponderación)
-<< CORREGIDO >>
-.................................................
-
-

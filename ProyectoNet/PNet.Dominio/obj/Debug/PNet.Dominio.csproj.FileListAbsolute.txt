@@ -1,9 +1,0 @@
-C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.Dominio\bin\Debug\PNet.Dominio.dll
-C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.Dominio\bin\Debug\PNet.Dominio.pdb
-C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.Dominio\obj\Debug\PNet.Dominio.dll
-C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.Dominio\obj\Debug\PNet.Dominio.pdb
-C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.Dominio\bin\Debug\PNet.Dominio.dll.config
-C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.Dominio\bin\Debug\EntityFramework.dll
-C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.Dominio\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.Dominio\bin\Debug\EntityFramework.xml
-C:\Users\EricDaniel\Desktop\ProyectoNet\PNet.Dominio\bin\Debug\EntityFramework.SqlServer.xml
